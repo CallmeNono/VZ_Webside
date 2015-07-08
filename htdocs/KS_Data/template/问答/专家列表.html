@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>在线专家_专家团_{$GetSiteName}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta content="{$GetClass_Meta_KeyWord}" name=keywords>
+<meta content="{$GetClass_Meta_Description}" name=description>
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+{LB_首页头部}
+<div class="navigation">
+    <span> 
+		       <script>
+					  check=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }
+					  }
+					  goask=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }else{
+						window.open('a.asp?q='+document.getElementById('KeyWord').value);
+						return false;
+					   }
+					   
+					  }
+				</script>
+          <form action="search.asp" method="post" name="myform" id="myform">
+            <dt>问题搜索
+                <input type="text" name="KeyWord" id="KeyWord" size="20" />
+                  <input type="image" src="{$GetInstallDir}images/sda.gif" onClick="return(check())" align="absmiddle" />
+                  <input type="image" src="{$GetInstallDir}images/wstw.gif" onClick="return(goask())" align="absmiddle" />
+              </dt>
+          </form></span>
+		  您当前位置：<a href="{$GetInstallDir}">{$GetSiteTitle}</a>  &gt; <a href="{$GetInstallDir}ask/">问答中心</a> &gt; 在线专家</div>
+			<div class="blank10 clear"></div><!--问答主体start-->
+			
+			<!--专家列表start-->
+			   <div class="zjmain">
+			      <div class="floatl">
+				      <div class="title"> <span id="seatype"><a href="zj.asp">所有专家</a>||<a href="zj.asp?show=tj">推荐专家</a>||<a href="zj.asp?show=new">最新专家</a></span> <span id="icon"></span>　专家介绍</div>
+					  <div class="floatlbox">
+					           <div class="zjlistbox">
+							       <div class="u_zjt_tgrz">
+									  <form name="asksearch" action="zj.asp" method="post">
+									  认证分类：{@search.typelist} 地区：{@search.area} 专家名称：<input type="text" name="key" size="15"/>
+									  <input type="image"  src="/images/btn2.gif" align="absmiddle"/>
+									  </form>
+									  </div>
+							   
+								   <ul>
+									{@zjlist.begin}
+									
+									<div class="askzj">
+									    <div class="zhuanjia_v03"><a target="_blank" href="{@zjlist.spaceurl}"><img src="{@zjlist.userface}" width="100" height="113"></a></div>
+										<div class="zhuanjia_v04">
+											<h2><div class="zxbtn"><a target="_blank" href="/ask/a.asp?askUserId={@zjlist.userid}">咨询专家</a></div><a target="_blank" href="{@zjlist.spaceurl}">{@zjlist.realname}</a> <span><a target="_blank" href="{@zjlist.spaceurl}">{@zjlist.typename}</a></span></h2>
+											
+
+											<p>{@zjlist.intro}<span><a target="_blank" href="{@zjlist.spaceurl}">[查看个人主页]</a></span></p>
+											
+									   
+									  </div>
+									 </div>
+									
+								{@zjlist.end}
+								</ul>
+									 <div class="clear"></div>
+									{@foot.showpage}
+							  </div>
+				
+					  </div>
+				  
+				  </div>
+				  <div class="floatr">
+				      <div class="floatr1">
+					      <div class="title"><span></span>什么是专家团</div>
+						  <div class="floatr1box">
+						      <ul>
+			  为全面提高问答质量，更好的为网友解决实际问题，{$GetSiteName}专家团所有专家都通过严格的实名认证，同时{$GetSiteName}也诚意邀请在各领域内有专业知识或丰富经验的实力团队或个人加盟到{$GetSiteName}专家团里共同努力为网友解决燃眉之急！
+							</ul>
+						  </div>
+					  </div>
+					  <div class="clear blank10"></div>
+				      <div class="floatr1">
+					      <div class="title"><span></span>如何加入专家团？</div>
+						  <div class="floatr1box">
+						      <ul>
+			  如果您在房产方面有着丰富的经验、独特的见解，如果您愿意帮助别人，那么就加入{$GetSiteTitle}问答达人行列，用您的经验帮助有困难的购房者解决问题，有赢取大家感激与尊敬的同时，每个季度都可以获得{$GetSiteTitle}送出的特别奖励……<br />
+			                      <div><a target="_blank" href="/user/user_askzj.asp"><img src="/ask/images/joinzj.jpg"></a></div>
+							</ul>
+						  </div>
+					  </div>
+				  </div>
+			   </div>
+			<!--专家列表end-->
+<!--问答主体start-->
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

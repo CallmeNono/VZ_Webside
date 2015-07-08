@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$ShowBlogName}-{$GetSiteTitle}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk" />
+<meta http-equiv="Content-Language" content="gbk" />
+<meta name="robots" content="all" />
+<meta http-equiv="x-ua-compatible" content="ie=emulateie7"/>
+<script src="{$GetInstallDir}ks_inc/kesion.box.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.page.js" language="javascript"></script>
+<link href="{$GetInstallDir}space/css/css.css" type=text/css rel=stylesheet>
+</head>
+<body>
+<style>
+body{margin:0;padding:0;color:#333;font-size:12px;text-align:center;line-height:180%;background:#A80103;}
+a {color:#5c94a7;text-decoration:none}
+a:hover {color:#f60;}
+.clear{clear:both;height:0px;overflow:hidden;}
+div,ul,li{padding:0px;margin:0px;list-style-type:none;}
+h2{padding:0px;margin:0px;}
+
+
+.header{width:100%;margin:0px auto 0 auto;background:url({$GetInstallDir}space/skin/blog2/topbg.png) repeat-x; height:24px;padding: 0px 0px 1px 0px;font-family:Verdana, Arial, Helvetica, sans-serif, "宋体"; color:#6596a9;}
+.top{width:910px;margin:0px auto;}
+.left{width:550px;float:left;text-align:left; line-height:24px;}
+.right{width:300px;float:right;text-align:right; line-height:24px;}
+
+
+.indexmain{width:1002px;margin:0px auto;background:red url({$GetInstallDir}space/skin/blog3/topbg.gif) no-repeat;margin-top:10px;height:516px;overflow:hidden;}
+.banner{height:200px;}
+.banner h1{font-size:20px;font-weight:bold;color:#000;text-align:left;padding-top:120px;padding-left:150px;}
+.banner h2{font-size:12px;font-weight:normal;color:#000;text-align:left;padding-top:30px;padding-left:150px;}
+
+.menu{padding-top:196px;}
+.menu ul{margin-top:2px;margin-left:15px;}
+.menu li{float:Left;width:66px;margin-right:5px;height:22px;line-height:22px;}
+.menu a{font-size:14px;color:#000; font-weight:bold;}
+.menu a:hover{color:#005B66;}
+
+.mainbody{width:1002px; margin:0px auto; background:url({$GetInstallDir}space/skin/blog3/bg.gif) repeat-y;height:100%;overflow:hidden;)}
+.mainbody .content{width:910px; margin:0px auto;}
+.mainbodyl{width:200px;float:Left;}
+.mainbodyl1{width:200px;}
+.mainbodyl1 .title{background:url({$GetInstallDir}space/skin/blog3/ttbg.jpg)  no-repeat;height:71px;line-height:71px;text-align:left;font-weight:bold;color:#000; font-size:14px;padding-left:10px;}
+.box{height:100%;overflow:hidden;}
+.box ul{padding:8px;background:#fff;}
+.userzl{}
+.userzl li{width:78px;margin:5px;float:left;border:#E5E5E5 1px solid;}
+.ul_brief{text-align:left;}
+.ul_brief li{line-height:24px;}
+
+.mainbodym{width:475px;float:left;margin-left:12px;}
+.mainbodyr{width:206px;float:right;}
+
+.mainbodyl2{margin-top:10px;}
+.mainbodyl2 .title{background:url({$GetInstallDir}space/skin/blog3/ttbg.jpg)  no-repeat;height:71px;line-height:71px;text-align:left;font-weight:bold;color:#000; font-size:14px;padding-left:10px;}
+.friends{}
+.friends ul{padding:8px;height:100%;overflow:hidden;}
+.friends li{width:33%;float:left;height:98px;overflow:hidden;}
+.friends a.b{margin:5px;}
+.friends a.b img{width:40px;height:40px;border:#ccc 1px solid;padding:2px;}
+
+.ul_stats{}
+.ul_stats ul{padding:8px;text-align:left;line-height:24px;}
+
+.mainbodym .wzfl{background:#EEFDC5;border:#269024 1px solid;font-size:12px;line-height:33px;text-align:left;padding-left:10px;}
+.mainbodym .wzfl span.classcolor{}
+.mainbodymbox{background:#fff;margin-top:10px;}
+.mainbodymbox .title{background:url({$GetInstallDir}space/skin/blog3/ttbg.jpg)  no-repeat;height:71px;line-height:71px;text-align:left;font-weight:bold;color:#000; font-size:14px;padding-left:10px;}
+.dzwz{border:#B7E0EC 0px solid;border-top:none;}
+.dzwz ul{padding:8px;}
+.dzwz .ul_recommend{text-align:left;}
+.dzwz .ul_recommend li{line-height:24px;background:url({$GetInstallDir}space/skin/blog1/dot.jpg) no-repeat 5px 10px;padding-left:15px;border-bottom:#B7E0EC 1px dotted;}
+.dzwz .ul_recommend span{color:#C4BED4;}
+
+.artlist{padding:8px;border:#B7E0EC 0px solid;border-top:none;text-align:left;}
+
+
+.xiangce{border:#B7E0EC 0px solid;border-top:none;padding:8px;text-align:left;}
+.xiangce span.titletips{height:30px;line-height:30px;}
+.xiangce a.more{height:30px;line-height:30px;}
+.xiangce a.zp{background:#f1f1f1;}
+.xiangce a.zp:hover{background:#ff9900;}
+.xiangce a.zp img{width:95px;height:95px;}
+
+.mainbodyr1{}
+.mainbodyr1 .title{background:url({$GetInstallDir}space/skin/blog3/ttbg.jpg)  no-repeat;height:71px;line-height:71px;text-align:left;font-weight:bold;color:#000; font-size:14px;padding-left:10px;}
+.note{background:#fff;border:#B7E0EC 0px solid;border-top:none;padding:8px;line-height:24px;text-align:left;}
+.rili{background:#fff;border:#B7E0EC 0px solid;border-top:none;padding:8px;line-height:24px;text-align:left;}
+
+.mainbodyr2{background:#fff;margin-top:10px;}
+.mainbodyr2 .title{background:url({$GetInstallDir}space/skin/blog3/ttbg.jpg)  no-repeat;height:71px;line-height:71px;text-align:left;font-weight:bold;color:#000; font-size:14px;padding-left:10px; position:relative;}
+.mainbodyr2 .title span{position:absolute;right:10px; top:0px;}
+.mainbodyr2 .title span a{ color:#fff; font-weight:normal;}
+
+
+.copyright{width:1002px; margin:0px auto;background:url({$GetInstallDir}space/skin/blog3/footbg.gif)  no-repeat;height:80px;line-height:33px;color:#000;}
+
+</style>
+
+<div class="header">
+
+  <div class="top">
+   <div class="left">{$GetTopUserLogin}</div>
+   <div class="right"><a href="/?do=reg">注册</a>  |  <a href="/user/Login/">登录</a>   |   {$JS_HomePage}   |  {$JS_Collection}</div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="indexmain">
+    <div class="banner">
+		<h1>{$ShowBlogName}</h1>
+		<h2>{$ShowBlogDescript}</h2>
+	</div>
+	
+	<div class="clear"></div>
+
+    <div class="menu">
+	  <ul>
+	   {$ShowNavigation}
+	  </ul>
+	</div>
+</div>	
+	<div class="clear"></div>
+   <div class="mainbody">
+     <div class="content">
+	  <div class="mainbodyl">
+	    <div class="mainbodyl1">
+		   <div class="title">个人名片</div>
+		   <div class="box">
+			  <ul>
+			    {$ShowUserInfo}
+				</ul>
+				<ul class="ul_brief">
+					<li>姓名：{$GetRealName}</li>
+					<li>性别：{$GetSex}</li>
+					<li>地区：{$GetAddress}</li>
+					<li>QQ号：{$GetQQ}</li>
+					<li>Email：{$GetEmail}</li>
+					<li>个人签名： {$GetSign}</li>
+				</ul>
+		   </div>
+		</div>
+		
+		<div class="clear"></div>		
+		 
+		 <div class="mainbodyl2">
+		   <div class="title">最近谁来看过我</div>
+		   <div class="friends">
+		     <ul>
+			  <!--start-->
+			  {$ShowVisitor}
+			  <!--end-->
+			  </ul>
+		   </div>
+		</div>
+		
+		
+		<div class="clear"></div>		
+
+		  <div class="mainbodyl2">
+		   <div class="title">博客统计</div>
+		   <div class="ul_stats">
+				<ul>
+					{$ShowBlogTotal}
+				</ul>		  
+			 </div>
+		</div>
+		
+	  </div>
+	  
+	  
+	  <!--中间-->
+      <div class="mainbodym">
+	     <div class="wzfl">
+		     
+				<span class="classcolor">
+					{$ShowNewFresh}
+			</span>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodymbox">
+		    <div class="title">最新日志</div>
+			<div class="dzwz">
+			  <ul class="ul_recommend">
+				{$ShowNewLog}
+				</ul>
+			</div>
+		 </div>
+	  
+	  <div class="clear"></div>
+	  
+	  	<div class="mainbodymbox">
+		    <div class="title">最新信息集</div>
+			 <div class="artlist">
+				{$ShowNewInfo}
+			 </div>
+			</div>
+			
+		<div class="mainbodymbox">
+		    <div class="title">最新相册集</div>
+			 <div class="xiangce">
+				{$ShowNewAlbum}
+			 </div>
+			</div>
+	 
+	  <div class="clear"></div>
+
+		<div class="mainbodymbox">
+		    <div class="title">最新留言</div>
+			 <div class="artlist">
+				{$ShowMessage}
+			 </div>
+			</div>
+			
+		 </div>
+		 
+	  
+	  <!--右边-->
+      <div class="mainbodyr">
+		 <div class="mainbodyr1">
+		    <div class="title">空间公告</div>
+			<div class="note">
+				{$ShowAnnounce}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title"><span> <a href="../space/?{$ShowUserID}/club">更多>></a></span>最新话题</div>
+			<div class="rili">
+				{$ShowClubTopic}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title">高级日历</div>
+			<div class="rili">
+				{$ShowCalendar}
+			</div>
+		 </div>
+
+	  <div class="clear"></div>
+	     
+		 <div class="mainbodyr2">
+		    <div class="title">最新评论</div>
+			<div class="rili">
+				{$ShowComment}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title">RSS订阅</div>
+			<div class="rili">
+				{$ShowXML}
+			</div>
+		 </div>
+
+	  
+       </div>
+	  </div>
+   </div>
+	  </div>
+
+<div class="clear"></div>
+
+<div class="copyright">
+   漳州科兴信息技术有限公司版权所有 copyright&copy by kesion.com Version7.5
+</div>
+
+</body>
+</html>

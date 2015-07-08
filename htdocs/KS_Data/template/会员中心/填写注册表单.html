@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$GetSiteName}-新会员注册</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_Inc/CheckPassWord.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.regcheck.js" type="text/javaScript"></script>
+<script type="text/javascript" src="{$GetInstallDir}editor/ckeditor.js"></script>
+<script src="{$GetInstallDir}ks_inc/lhgdialog.js"></script>
+<script type="text/javascript">
+var minlen={$Show_UserNameLimitChar};
+var maxlen={$Show_UserNameMaxChar};
+var question={$Show_Question};
+var mobile={$Show_Mobile};
+var detailTF={$Show_DetailTF};
+$(document).ready(function(){
+ regTypeTips();
+ $("input[name=GroupID]").click(function(){
+   regTypeTips();
+   loadDetailForm();
+ });
+ if ($("#detailForm").css("display")!="none"){
+  loadDetailForm();
+ }
+});
+function regTypeTips(){
+ var g=$("input[@name=GroupID]:checked").val();
+ if (g==undefined) g=$("#GroupID").val();
+ $(".typetips").hide().html("<img src='{$GetInstallDir}user/images/ico.gif' align='absmiddle' />"+$("#tips_"+g).html()).fadeIn("slow");
+}
+var editor=new Array();
+var pgroupid,idstr=null;
+function loadDetailForm(){
+ try{
+   if (idstr!=null)
+   {
+    var idarr=idstr.split('|');
+	for(var i=0;i<idarr.length;i++){
+	 if (editor[pgroupid+idarr[i]]){
+	  editor[pgroupid+idarr[i]].destroy();
+	 }
+	}
+	idstr=null;
+   }
+ }catch(e){
+ }
+  if (detailTF!=2) return;
+  var groupid=$("input[@name=GroupID]:checked").val();
+  if (groupid==undefined){
+   groupid=$("#GroupID").val();
+  }
+  if (groupid==undefined && detailTF!=2) return;
+  $("#loading").show();
+	  $.get("{$GetInstallDir}user/reg/regajax.asp",{action:"getregform",groupid:groupid},function(d){
+	  $("#userDetail").hide().html(unescape(d)).fadeIn("slow");
+	   checkLoadCk(d,groupid);
+	   $("#loading").hide();
+  });
+}
+function checkLoadCk(d,groupid){
+  $(d).find("textarea").each(function(){
+			   var id=$(this).attr("id");
+		     if(id.indexOf('_ck')!=-1){
+			   var config={toolbar:"Basic",width:"98%"};
+			   if (idstr==null){
+			   idstr=id;
+			   }else if(idstr.lastIndexOf(id)==-1){
+			   idstr+="|"+id;
+			   }
+			   pgroupid=groupid;
+	          editor[groupid+id]=CKEDITOR.replace(id ,config);
+	 }
+  });
+}
+function loadCity(v){
+ $.get("{$GetInstallDir}user/reg/regajax.asp",{action:"getcityoption",province:escape(v)},function(d){
+   $("#City").empty().append("<option value=''>--请选择城市--</option>").append(d);
+ });
+}
+</script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+<!-- head begin -->
+
+<div class="clubtop">
+    <div class="clubtopbox">
+	      <div class="logo"><img src="{$GetInstallDir}club/images/kslogo.png" alt="kesioncms"></div>
+		  <div class="clubnav">
+		      <ul>
+			       <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+			  </ul>
+		  </div>
+		   <div class="poplogin">
+		    {$GetPopLogin}
+		   </div>
+	</div>
+</div>
+<div class="blank10 clear"></div>
+
+<div class="blank10 clear"></div>
+
+<div class="user_topc">
+   <h2>用户注册</h2>
+   <span></span>
+   <div class="topc_r">如果您已经是会员请<a href="{$GetInstallDir}user/login/" target="_blank">登录</a>,(带<font color="red">*</font>号的必须填写)</div>
+</div>
+               <form name="myform" onSubmit="return CheckForm();" action="UserRegResult.asp" method="post">
+
+<div class="blank10 clear"></div>
+<div class="user_topd">
+
+    <h3>请仔细填写个人信息<span>{$ShowUserType} </span></h3>
+	
+	<div class="blank10 clear"></div>
+	
+	<div class="usertopd">
+	      <!--注册信息start-->
+			  	       
+			           
+						 <h2>用户基本信息：</h2>
+						<div class="blank10 clear"></div>
+				        <dl class="cc">
+								<dt>会员名称：<font color="red">*</font></dt>
+								<dd class="put">
+									<input name="UserName" class="input" maxlength="30" id="UserName" type="text" onBlur="out_username();" onKeyUp="out_username();" onFocus="on_input('usernamemsg');"{$UserName}> 
+								</dd>
+								<dd class="tips"><span class="d_err" id="usernamemsg"></span></dd>
+						 </dl>
+						 
+						 <dl class="cc">
+								<dt>推  荐  人：</dt>
+								<dd class="put">
+									<input name="AllianceUser" class="input" id="AllianceUser" {$AllianceUser} type="text"> 
+									<input type="hidden" name="f" id="f"{$Friend}>
+								</dd>
+								<dd class="tips">请输入推荐您加盟的会员名称</dd>
+						 </dl>
+						 <dl class="cc">
+								<dt>用户密码：<font color="red">*</font></dt>
+								<dd class="put">
+									<input id="PassWord" name="PassWord" class="input" type="PassWord" style="font-FAMILY: verdana;" onBlur="out_password1();setPasswordLevel(this, document.getElementById('passwordLevel'));"  onKeyUp="setPasswordLevel(this, document.getElementById('passwordLevel'));if(this.value.length>0)$('#prank').show();">
+								</dd>
+								<dd class="tips"><span id="passwordmsg1" class="d_default"></span></dd>
+						 </dl>
+						
+						<dl class="cc" id="prank" style="display:none">
+								<dt>密码强度：</dt>
+								<dd class="put">
+									<input name="Input" disabled="disabled" class="rank r0" id="passwordLevel" />
+								</dd>
+						 </dl>
+						 
+						 <dl class="cc">
+								<dt>确认密码：<font color="red">*</font></dt>
+								<dd class="put">
+									<input name="RePassWord" id="RePassWord" class="input" onFocus="on_input('passwordmsg2');" onBlur="out_password2();" type="PassWord" style="font-FAMILY: verdana;">
+								</dd>
+								<dd class="tips"><span id="passwordmsg2" class="d_default"></span></dd>
+						 </dl>
+						 
+						 <div{$DisplayQestion}>
+							  <dl class="cc">
+									<dt>提示问题：<font color="red">*</font></dt>
+									<dd class="put">
+										<Select class="select" id="Question" style="width:223px" onBlur="out_question()" onChange="out_question()" name="Question">
+										<Option value="" selected>--请您选择--</Option>
+										<Option value="我的宠物名字？">我的宠物名字？</Option>
+										<Option value="我最好的朋友是谁？">我最好的朋友是谁？</Option>
+										<Option value="我最喜爱的颜色？">我最喜爱的颜色？</Option>
+										<Option value="我最喜爱的电影？">我最喜爱的电影？</Option>
+										<Option value="我最喜爱的影星？">我最喜爱的影星？</Option>
+										<Option value="我最喜爱的歌曲？">我最喜爱的歌曲？</Option>
+										<Option value="我最喜爱的食物？">我最喜爱的食物？</Option>
+										<Option value="我最大的爱好？">我最大的爱好？</Option>
+										<Option value="我中学校名全称是什么？">我中学校名全称是什么？</Option>
+										<Option value="我的座右铭是？">我的座右铭是？</Option>
+										<Option value="我最喜欢的小说的名字？">我最喜欢的小说的名字？</Option>
+										<Option value="我最喜欢的卡通人物名字？">我最喜欢的卡通人物名字？</Option>
+										<Option value="我母亲/父亲的生日？">我母亲/父亲的生日？</Option>
+										<Option value="我最欣赏的一位名人的名字？">我最欣赏的一位名人的名字？</Option>
+										<Option value="我最喜欢的运动队全称？">我最喜欢的运动队全称？</Option>
+										<Option value="我最喜欢的一句影视台词？">我最喜欢的一句影视台词？</Option>
+									  </Select> 
+									</dd>
+									<dd class="tips"><span id="questionmsg" class="d_default"></span></dd>
+							    </dl>
+								<dl class="cc">
+									<dt>提示答案：<font color="red">*</font></dt>
+									<dd class="put">
+										<input name="Answer" onBlur="out_answer();" onFocus="on_input('answermsg');" type="text" id="Answer" class="input">
+									</dd>
+									<dd class="tips"><span id="answermsg" class="d_default"></span></dd>
+						       </dl>
+						     </div>
+							 <div{$DisplayMobile}>
+							  <dl class="cc">
+									<dt>手机号码：<font color="red">*</font></dt>
+									<dd class="put">
+										<input name="Mobile"  onkeyup="out_mobile();" onblur="out_mobile();" onFocus="on_input('mobilemsg');" type="text" id="Mobile" class="input">
+									</dd>
+									<dd class="tips"><span id="mobilemsg" class="d_default"></span></dd>
+						       </dl>
+							 </div>
+							 
+							 <dl class="cc">
+								<dt>邮箱地址：<font color="red">*</font></dt>
+								<dd class="put">
+									<input name="Email" id="Email" class="input" onFocus="on_input('emailmsg');" onkeyup='out_email();' type="text">
+								</dd>
+								<dd class="tips"><span id="emailmsg" class="d_default"></span></dd>
+						    </dl> 
+							
+							<div{$DisplayRegQuestion}>
+							  <dl class="cc">
+									<dt>您的问题：<font color="red">*</font></dt>
+									<dd class="put">
+										<font color="red">{$RegQuestion}</font>
+									</dd>
+						       </dl>
+							  <dl class="cc">
+									<dt>您的答案：<font color="red">*</font></dt>
+									<dd class="put">
+										<input name="a{$AnswerRnd}" id="a{$AnswerRnd}" class="input" onFocus="on_input('reganswermsg');" type="text">
+										<dd class="tips"><span id="reganswermsg" class="d_default"></span></dd>
+									</dd>
+						       </dl>
+							 </div>
+							
+							<dl class="cc"{$Show_VerifyCodeTF}>
+								<dt>验 证 码：<font color="red">*</font></dt>
+								<dd class="put">
+									<input onKeyUp="out_chkcode();" onBlur="out_chkcode();" onFocus="this.value='';getCode();on_input('chkcodemsg');" name="Verifycode" type="text" id="Verifycode" class="input" style="width:168px" maxlength="6">
+									<span id="showVerify"></span>  
+								</dd>
+								<dd class="tips"><span id="chkcodemsg" class="d_default"></span></dd>
+						    </dl> 
+						 <div class="clear blank10"></div>
+						<div id="detailForm"{$Show_Detail}>
+						<h2>用户详细信息：</h2>
+						 <div id="userDetail"></div>
+						</div>
+				  
+					   <div style="clear:both;padding-left:10px"> 
+						  <label><input name="viewlicense" id="viewlicense" type="checkbox" onClick="getlicense()" value="1">我已阅读并完全接受服务条款</label> &nbsp; &nbsp;&nbsp;
+						  <input type="image" src="{$GetInstallDir}user/images/button_reg.gif" alt="注册" align="middle" border="0"></div>
+					
+					  <div id="license" style="display:none">
+						 <h3>阅读服务条款</h3>
+						 <div class="reglice">{$GetUserRegLicense}</div>
+					  </div>
+		          
+				  
+	           </form>
+          <!--注册信息end-->
+	</div>
+	
+</div>
+
+		<div class="clear"></div>	
+	 <div class="foot"> {LB_用户中心底部}</div>
+         
+</body>
+</html>

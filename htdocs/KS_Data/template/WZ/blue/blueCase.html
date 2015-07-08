@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/WZ/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/WZ/style/index.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/WZ/style/blue.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/fun.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/WZ/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+<style type="text/css">
+body{background:url({$GetInstallDir}images/WZ/image/bodyBg2.jpg) center bottom no-repeat; background-size:100%;}
+</style>
+</head>
+
+<body>
+{LB_广告页头}
+<div class="headDiv">
+<div class="wal">
+      <div class="nav">
+            {LB_广告blue版块导航}
+      </div>
+</div>
+</div>
+<script type="text/javascript">
+$('.nav').find('a').eq(3).addClass('aNow');
+</script>
+
+<div class="wal">
+<!--wal-->
+<div class="servicePart1"><a href=""><img src="{$GetInstallDir}images/WZ/image/img1000_11.jpg" alt="" /></a></div>
+<div class="pageTitle">
+      <i></i>
+      <div>Case</div>
+      <span>案例展示</span>
+</div>
+<div class="fl case">
+      <h1><img src="{$GetInstallDir}images/WZ/image/title2.png" alt="" /></h1>
+      {SQL_案例()}
+</div>
+<div class="fr caseSide">
+      <div class="name">
+      <a href="javascrpt:;">{Flash动画及影视制作}<div>Flash animation and film and <br />television production</div></a>
+      </div>
+      <div class="list">
+            <ul>
+              <li>+ 视频制作</li>
+
+<li>+ 栏目制作</li>
+
+<li>+ 广告片</li>
+
+<li>+ 专题片</li>
+
+<li>+ 宣传片</li>
+
+<li>+ Flash动画设计制作</li>
+            </ul>
+      </div>
+      <div class="name">
+      <a href="javascrpt:;">{广告工程}<div>Brand image design</div></a>
+      </div>
+      <div class="list">
+            <ul>
+              <li>+ 室内外广告装饰</li>
+
+<li>+ 广告宣传物料</li>
+
+<li>+ 展览展示</li>
+
+<li>+ 庆典礼仪物料</li>
+
+<li>+ LED亮化工程</li>
+
+<li>+ 标识标牌</li>
+            </ul>
+      </div>
+      <div class="name">
+      <a href="javascrpt:;">{礼品定制}<div>Brand identity design</div></a>
+      </div>
+      <div class="list">
+            <ul>
+              <li>+ 广告礼品</li>
+
+<li>+ 办公礼品</li>
+
+<li>+ 促销礼品</li>
+
+<li>+ 工艺礼品</li>
+
+<li>+ 会务礼品</li>
+
+<li>+ 商务礼品</li>
+            </ul>
+      </div>
+      <div class="name">
+      <a href="javascrpt:;">{印刷喷绘}<div>Creative advertising design</div></a>
+      </div>
+      <div class="list">
+            <ul>
+              <li>+ 纸制印刷品</li>
+
+<li>+ 画册传单</li>
+
+<li>+ 横幅彩旗</li>
+
+<li>+ X展架&易拉宝</li>
+
+<li>+ 灯布&背胶</li>
+
+<li>+ KT板&安迪板</li>
+            </ul>
+      </div>
+</div>
+<span class="clear_f"></span>
+<div class="h20"></div>
+<!--walEnd-->
+</div>
+
+{LB_右侧浮动图标}
+<div class="footDiv2">
+      {LB_网站底部版权}
+</div>
+</body>
+</html>

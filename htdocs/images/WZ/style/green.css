@@ -1,0 +1,16 @@
+a:hover{color:#90c31f;}
+.sideFx a{background:#90c31f;}
+.pageTitle i{background:url(../image/pageTitle1.png) left top no-repeat;}
+.topBtn .a1{background:url(../image/home1.png) left center no-repeat;}
+
+.nav a:hover{background:url(../image/navIco4.png) 6px 10px no-repeat;}
+.nav .aNow, .nav .aNow:hover{background:#90c31f url(../image/navIco3.png) 6px 10px no-repeat; color:#FFF;}
+
+.pageTitle span{color:#009944;}
+
+.aboutPart3 dd a{background:url(../image/ico1.gif) right center no-repeat;}
+
+.contact .bg{background:url(../image/contactBg1.png) 130px 63px no-repeat;}
+.contact li div{color:#90c31f;}
+
+.aboutPart2 .fl span{background:url(../image/ico2.png) 10px center no-repeat; color:#90c31f;}

@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$GetSiteName}-会员控制面板</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/Kesion.Box.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/lhgdialog.js"></script>
+
+<!--鼠标滑动特效end--> 
+<script type="text/javascript">
+ <!---
+  function getNewMessage()
+  {
+    $.get("UserAjax.asp",{action:"GetNewMessage"},function(d){
+	 jQuery("#NewMessage").html(unescape(d));
+	});
+	setTimeout("getNewMessage()", 10000);
+  }
+	setTimeout("getNewMessage()", 1000);
+  //-->
+</script>
+<script type="text/javascript">
+						  function copyToClipboard(txt) {
+							 if(window.clipboardData) {
+									 window.clipboardData.clearData();
+									 window.clipboardData.setData("Text", txt);
+							 } else if(navigator.userAgent.indexOf("Opera") != -1) {
+								  window.location = txt;
+							 } else if (window.netscape) {
+								  try {
+									   netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+								  } catch (e) {
+									   alert("被浏览器拒绝！\n请在浏览器地址栏输入'about:config'并回车\n然后将'signed.applets.codebase_principal_support'设置为'true'");
+								  }
+								  var clip = Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard);
+								  if (!clip)
+									   return;
+								  var trans = Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable);
+								  if (!trans)
+									   return;
+								  trans.addDataFlavor('text/unicode');
+								  var str = new Object();
+								  var len = new Object();
+								  var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+								  var copytext = txt;
+								  str.data = copytext;
+								  trans.setTransferData("text/unicode",str,copytext.length*2);
+								  var clipid = Components.interfaces.nsIClipboard;
+								  if (!clip)
+									   return false;
+								  clip.setData(trans,null,clipid.kGlobalClipboard);
+							 }
+								  alert("复制成功！")
+						}
+		 </script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+<!-- head begin -->
+
+<div class="clubtop">
+    <div class="clubtopbox">
+	      <div class="logo"><img src="{$GetInstallDir}club/images/kslogo.png" alt="kesioncms"></div>
+		  <div class="clubnav">
+		      <ul>
+			       <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+			  </ul>
+		  </div>
+		   <div class="poplogin">
+		    {$GetPopLogin}
+		   </div>
+	</div>
+</div>
+<div class="blank10 clear"></div>
+
+
+
+<div class="usermain">
+   <div class="left">
+        <div class="left01">
+		    <div class="floatl avatar48"><img src="{#UserFace}" onerror="this.src='images/noavatar_small.gif';" width="50" height="50" /></div>
+			<div class="floatr">
+			    <ul>
+				   <li>{#UserName} <span class="rl" style="cursor:pointer" onMouseover="$('#userstatus').show();">{ElseIf:KSUser.GetUserInfo("IsOnline")="1"}
+				   <img src="images/online.gif" align='absmiddle' alt="当前在线"> 
+				   {Else}
+				   <img src="images/notonline.gif" align='absmiddle' alt="当前隐身"/> 
+				   {/ElseIf}
+						<div id="userstatus" class='abs' style="top:15px;" onMouseOut="$('#userstatus').hide();">
+							<dl style="text-align:center"><a href="?action=offline">隐身离线</a></dl>
+							<dl style="text-align:center"><a href="?action=setonline">我在线上</a></dl>
+						</div></span>
+					</li>
+				 <li>{#GroupName}</li>
+				</ul>
+			</div>
+		</div>
+        <div class="clear blank10"></div>
+        
+		     {#ShowMyMenu}
+		  
+   
+   </div>
+   <div class="right">
+        <!--rightml start-->
+		  
+		
+		   {#ShowUserMain}
+		
+	
+		
+		<!--right end-->
+   </div>
+
+</div>
+		<div class="clear"></div>	
+	 <div class="foot">  {LB_用户中心底部}</div>
+         
+</body>
+</html>

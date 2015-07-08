@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$ShowBlogName}-{$GetSiteTitle}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk" />
+<meta name="robots" content="all" />
+<meta http-equiv="x-ua-compatible" content="ie=emulateie7"/>
+<script src="{$GetInstallDir}ks_inc/jquery.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.page.js" language="javascript"></script>
+<link href="{$GetInstallDir}space/skin/blog1/style.css" type=text/css rel=stylesheet>
+</head>
+<body>
+<div class="header">
+      <div class="head">
+	       <div class="left">{$GetTopUserLogin}</div>
+		   <div class="right"><a href="/?do=reg">注册</a>  |  <a href="/user/Login/">登录</a>   |   {$JS_HomePage}   |  {$JS_Collection}</div>
+	  </div>
+</div>
+<div class="clear"></div>
+<div class="topbanner">
+		<div class="banner">
+			   <h1>{$ShowBlogName}</h1>
+		       <h2>{$ShowBlogDescript}</h2>
+		</div>
+</div>
+<div class="clear"></div>
+<div class="nav">
+    <ul>
+	   {$ShowNavigation}
+	</ul>
+</div>
+<div class="blank10 clear"></div>
+
+<div class="blog1main">
+   <div class="left">
+       <div class="left01">
+	       <div class="title">个人资料</div>
+		   <div class="left01box">
+		         <ul>
+			       {$ShowUserInfo}
+				</ul>
+				<ul class="ul_brief">
+					<li>姓名：{$GetRealName}</li>
+					<li>性别：{$GetSex}</li>
+					<li>地区：{$GetAddress}</li>
+					<li>QQ号：{$GetQQ}</li>
+					<li>Email：{$GetEmail}</li>
+					<li>个人签名： {$GetSign}</li>
+				</ul>
+		   </div>
+	   </div>
+	   <div class="clear blank10"></div>
+	   
+	    <div class="left01">
+	       <div class="title">最近谁来看过我</div>
+		   <div class="left02box">
+		         <ul>
+			        {$ShowVisitor}
+				</ul>
+		   </div>
+	   </div>
+	   
+	    <div class="clear blank10"></div>
+	   
+	    <div class="left01">
+	       <div class="title">博客统计</div>
+		   <div class="left02box">
+		         <ul>
+			        {$ShowBlogTotal}
+				</ul>
+		   </div>
+	   </div>
+	   
+	  
+   </div>
+   
+   <div class="middle">
+       <div class="middle01">
+	         {$ShowNewFresh} 
+	   </div>
+	   
+	   <div class="clear blank10"></div>
+   
+       <div class="middle02">
+	       <div class="title">最新日志</div>
+		   <div class="middle02box">
+		          <ul>
+				   {$ShowNewLog}
+				</ul> 
+		   </div>
+	   </div>
+  
+  
+        <div class="clear blank10"></div>
+   
+       <div class="middle02">
+	       <div class="title">最新信息集</div>
+		   <div class="middle03box">
+		          <ul>
+				  {$ShowNewInfo}
+				</ul> 
+		   </div>
+	   </div>
+	   
+	   
+	      <div class="clear blank10"></div>
+   
+       <div class="middle02">
+	       <div class="title">最新相册集</div>
+		   <div class="middle04box">
+		          <ul>
+				 {$ShowNewAlbum}
+				</ul> 
+		   </div>
+	   </div>
+	   
+	   
+	        <div class="clear blank10"></div>
+   
+       <div class="middle02">
+	       <div class="title">最新留言</div>
+		   <div class="middle05box">
+		          <ul>
+				  {$ShowMessage}
+				</ul> 
+		   </div>
+	   </div>
+	   
+   
+   </div>
+   
+   
+   <div class="right">
+       <div class="right01">
+	        <div class="title">空间公告</div>
+			<div class="right01box">
+			    <ul>
+				{$ShowAnnounce}
+				</ul>
+			</div>
+	  </div>
+	   <div class="clear blank10"></div>
+	   
+	   <div class="right01">
+	        <div class="title"><span> <a href="../space/?{$ShowUserID}/club">更多>></a></span>最新话题</div>
+			<div class="right01box">
+			    <ul>
+				{$ShowClubTopic}
+				</ul>
+			</div>
+	  </div>
+	
+	   <div class="clear blank10"></div>
+	  <div class="right01">
+	        <div class="title">高级日历</div>
+			<div class="right01box">
+			    <ul>
+				  {$ShowCalendar}
+				</ul>
+			</div>
+	  </div>
+	  
+	    <div class="clear blank10"></div>
+	  <div class="right01">
+	        <div class="title">最新评论</div>
+			<div class="right01box">
+			    <ul>
+				  {$ShowComment}
+				</ul>
+			</div>
+	  </div>
+	  
+	     <div class="clear blank10"></div>
+	  <div class="right01">
+	        <div class="title">RSS订阅</div>
+			<div class="right01box">
+			    <ul>
+				 {$ShowXML}
+				</ul>
+			</div>
+	  </div>
+	  
+   </div>
+</div>
+
+	<div class="clear blank10"></div>
+	
+	<div class="foot">Powered by Kesion.Com &copy; 2006-2012 </div>
+
+</body>
+</html>

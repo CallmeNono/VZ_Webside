@@ -1,0 +1,22 @@
+a:hover{color:#fb892a;}
+.sideFx a{background:#f49800;}
+.pageTitle i{background:url(../image/pageTitle3.png) left top no-repeat;}
+.topBtn .a1{background:url(../image/home3.png) left center no-repeat;}
+
+.nav a:hover{background:url(../image/navIco6.png) 6px 10px no-repeat;}
+.nav .aNow, .nav .aNow:hover{background:#fcab24 url(../image/navIco3.png) 6px 10px no-repeat; color:#FFF;}
+
+.pageTitle span{color:#fcab24;}
+
+.aboutPart3 dd a{background:url(../image/ico1.gif) right center no-repeat;}
+
+.contact .bg{background:url(../image/contactBg3.png) 130px 63px no-repeat;}
+.contact li div{color:#fcab24;}
+
+.aboutPart2 .fl span{background:url(../image/ico2_3.png) 10px center no-repeat; color:#fcab24;}
+
+.case{padding-left:0px;}
+.caseSide{background:url(../image/caseSide2.jpg) right top no-repeat; width:232px; padding:135px 15px 200px 50px;}
+.caseSide .name a{background:url(../image/ico8.png) 200px 25px no-repeat;}
+.caseSide .name div{color:#f39700;}
+.caseSide .list a:hover{color:#f39700;}

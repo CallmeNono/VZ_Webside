@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<title>会员登录-{$GetSiteTitle}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}images/png.js" type=”text/javascript”></script>
+<script src="{$GetInstallDir}ks_inc/lhgdialog.js"></script>
+<script type="text/javascript">
+var check={
+   CheckForm:function(){
+	 var username=$('#Username').val();
+	 var pass=$('#Password').val();
+	 var vycode=$('#Verifycode').val();
+	 if (username==''||username=='UID/用户名/Email'){
+		 $.dialog.alert('请输入用户名!',function(){
+		  $('#Username').focus();
+		  });
+		  return false;
+	 }
+	 if (pass==''){
+		  $.dialog.alert('请输入登录密码!',function(){
+		  $('#Password').focus();
+		  });
+	      return false;
+	 }
+	 if (vycode=='' && {$IsShowVerifyCode}==1){
+		  $.dialog.alert('请输入验证码!',function(){
+		  $('#Verifycode').focus();
+		  });
+		  return false;
+	 }
+	}
+}
+
+</script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+
+<body>
+
+
+<!-- head begin -->
+<div class="user_topa">
+    <div class="usertopa">
+	     <div class="logo"><a href="{$GetSiteUrl}" target="_blank"><img alt="kesioncms" src="{$GetInstallDir}images/logo.png" /></a></div>
+		 <div class="topa_r">
+				    <ul>
+				   <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+					<li class="on"><a href="{$GetSiteUrl}user/Contributor.asp" target="_self">匿名投稿</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   </ul>
+		 </div>
+	</div>
+</div>
+
+<div class="blank10 clear"></div>
+
+<div class="user_topc">
+   <h2>会员登录</h2>
+   <span></span>
+   <div class="topc_r">欢迎来到{$GetSiteTitle}!</div>
+</div>
+<div class="blank10 clear"></div>
+
+<!--main start-->
+<div class="user_topF">
+    <div class="left">
+	
+	</div>
+	<div class="right">
+	       <!---->
+		 <h2><span><a href="{$GetInstallDir}user/reg/" target="_blank">免费注册</a></span>用户登录</h2>
+           			
+	 <div class="box1">
+					<form action="../CheckUserLogin.asp" id="myform" name="myform" method="post">
+					<div class="form_detail">
+						<p>
+							<label>账&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+							<input type="text" onfocus="if(this.value=='UID/用户名/Email'){this.value='';}" onblur="if(this.value==''){this.value='UID/用户名/Email';}" value="UID/用户名/Email"  name="Username" maxlength="60" id="Username" class="ipt_tx" style="color:#999;width:149px;" tabindex="1" />
+							
+						</p>
+						<p>
+							<label>密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+							<input type="password" name="Password" maxlength="60" id="Password" class="ipt_tx" style="width:149px;" tabindex="2" autocomplete="off"/>
+						</p>
+						<p{$ShowVerifyCode}>
+							<label>验证码：</label>
+							<input type="text" maxlength="6" name="Verifycode" id="Verifycode" onFocus="this.value='';" class="ipt_tx" style="width:55px;" tabindex="3" autocomplete="off"/>
+							<span id="showVerify"><img style='height:38px;cursor:pointer' title='点击刷新' align='absmiddle' src='../../plus/verifycode.asp' onClick='this.src="../../plus/verifycode.asp?n="+ Math.random();'></span>
+							
+						</p>
+						<p class="loginbut"><input type="hidden" name="u1" id="u1"/>
+							<input type="image" style="z-index:inherit" onClick="return check.CheckForm();"  src="../images/login.gif" align="absmiddle" />
+						&nbsp;&nbsp;<a tabindex="6" href="../GetPassword.asp" target="_blank">忘记密码？</a> <a tabindex="7" href="../ActiveCode.asp" target='_blank'>重发激活码</a></p>
+						
+					
+					</div>
+				</form>
+				<div class="clear"></div>
+				<h3>没有{$GetSiteTitle}账号？<a href="{$GetInstallDir}user/reg/" target="_blank">立即注册</a></h3>
+				
+				<hr size="1"  color="#D9D9D9" />
+				<div class="clear"></div>
+				<h3>你还可以使用这些网站的账号直接登录：</h3>
+				<div class="formdetail">
+						{$ShowQuickLogin}
+				</div>
+						
+	
+				</div>
+			   
+	<!----> 
+		</div>
+</div>
+
+
+<!--main end-->
+
+		<div class="clear"></div>	
+	 <div class="foot"> {LB_用户中心底部}</div>
+</body>
+</html>
+       

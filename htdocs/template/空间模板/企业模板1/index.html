@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$ShowBlogName}-{$GetSiteTitle}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk" />
+<meta http-equiv="Content-Language" content="gbk" />
+<meta name="robots" content="all" />
+<meta http-equiv="x-ua-compatible" content="ie=emulateie7"/>
+<script src="{$GetInstallDir}ks_inc/kesion.box.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.page.js" language="javascript"></script>
+<link href="{$GetInstallDir}space/css/css.css" type=text/css rel=stylesheet>
+</head>
+<style>
+body{
+    margin:10px 0 10px 0;
+	background:#515459;
+	color:#000;font:12px Verdana,Arial,Helvetica,sans-serif;
+}
+a{
+	text-decoration: none;
+}
+a:link{
+    border:0;
+	color:#0A5D0A;
+	text-decoration:none;
+}
+
+a:active{
+    border:0;
+	color:#375719;
+	text-decoration:underline;
+}
+
+a:visited{ 
+    border:0;
+	color:#690;
+	text-decoration:none;
+}
+
+a:hover{
+    border:0;
+	color:#cc3000;
+}
+
+a:focus{
+    outline:none;
+}
+
+
+
+p{
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+	word-break:break-all;
+}
+img{
+	border:0 none;
+}
+.clear{clear:both;height:0px;overflow:hidden;}
+div,ul,li{padding:0px;margin:0px;list-style-type:none;}
+h2{padding:0px;margin:0px;}
+
+
+/*--------------------------全--局-------------------------------*/
+
+div.post {
+	width:520px;
+	margin:10px 0 10px 15px;
+	padding:0 0 0 0;
+	text-align:left;
+}
+p.posttop {
+	margin:10px 0 0 0;
+	padding:3px 0 2px 0;
+
+}
+p.postbottom {
+	margin:0 0 10px 0;
+	padding:5px 0 0 0;
+}
+
+
+
+body{
+    margin:10px 0 10px 0;
+	background:#515459;
+	color:#000;font:12px Verdana,Arial,Helvetica,sans-serif;
+}
+a{
+	text-decoration: none;
+}
+a:link{
+    border:0;
+	color:#0A5D0A;
+	text-decoration:none;
+}
+
+a:active{
+    border:0;
+	color:#375719;
+	text-decoration:underline;
+}
+
+a:visited{ 
+    border:0;
+	color:#690;
+	text-decoration:none;
+}
+
+a:hover{
+    border:0;
+	color:#cc3000;
+}
+
+a:focus{
+    outline:none;
+}
+
+
+
+p{
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+	word-break:break-all;
+}
+img{
+	border:0 none;
+}
+
+/*---------------------------------------------------------------*/
+
+
+.feed-icon{
+	display:none;
+}
+
+/*---------------------------------------------------------------*/
+
+
+#Container{width:940px;margin:0 auto;padding:40px 10px 10px 10px;background:#777c7f url({$GetInstallDir}space/skin/company01/BGCBottom.gif) no-repeat left bottom;position:relative;}
+
+#ContainerTop{width:960px;background:url({$GetInstallDir}space/skin/company01/BGCTop.gif) no-repeat left top;height:5px;top:0;left:0;position:absolute;}
+
+#Header{width:910px;clear:left;margin:0 auto;position:relative;}
+
+#HeaderTop{width:950px;}
+
+#Header #MenuTop{position:absolute;top:-27px;right:0; color:#fff;}
+
+#Header #MenuTop ul{padding:0;margin:0 0 0 0;list-style-type:none;}
+
+#Header #MenuTop li{padding:0 6px;margin:0;border-left:solid 1px #fff;display:inline;color:#fff;}
+
+#Header #MenuTop a{color:#fff;}
+
+#Header #MenuTop li a:hover{color:#fff;}
+
+#Header #navigation{color:#fff;position:absolute;top:-27px;left:10px;}
+#Header #navigation a{color:#fff;}
+
+#HeadLeft{}
+
+
+#HeadRight{background:url({$GetInstallDir}space/skin/company01/top.jpg) no-repeat left top; height:227px; margin-top:10px;}
+#HeadRight h1{padding-top:150px;font-size:30px; font-weight:bold; color:#000; padding-left:30px;}
+
+#HeadUn{width:920px;clear:left;margin:0 auto;padding:10px;margin:0 0 10px 0;background:#fff url({$GetInstallDir}space/skin/company01/HeadUnBottom.gif) no-repeat left bottom;height:82px;position:relative;}
+
+#HeadUnTop{width:940px;background:url({$GetInstallDir}space/skin/company01/HeadUnTop.gif) no-repeat left top;height:5px;top:0;left:0;position:absolute;}
+
+#MainMenu{width:924px;float:left;margin:0 auto;padding:5px 8px;margin:10px 0 10px 0;background:#1b212b url({$GetInstallDir}space/skin/company01/HeaderBottom.gif) no-repeat left bottom;position:relative;}
+
+#MainMenuTop{width:940px;background:url({$GetInstallDir}space/skin/company01/HeaderTop.gif) no-repeat left top;height:5px;top:0;left:0;position:absolute;}
+
+#MainMenu ul{margin:0;padding:5px 0 5px 0;float:left;list-style:none;}
+
+#MainMenu li{border-right:1px solid #3C414A;float:left;margin:0;padding:0 18px 0 18px;font-size:12px;letter-spacing:0;text-align:center;}
+
+* html #MainMenu li{margin:0 0 0 7px;}
+
+#MainMenu li.noborder{border-right:none;}
+
+#MainMenu li a{color:#fff;}
+
+#MainMenu li a:visited{color:#fff;}
+
+#MainMenu li a:hover{color:#ff9900;text-decoration:underline;}
+
+#MainMenu li a#menufeed{width:12px;padding-right:18px;background:url({$GetInstallDir}space/skin/company01/feed.gif) no-repeat right 2px;font-weight:bold;height:12px;}
+
+#MainMenu li a#menufeed:hover{width:12px;padding-right:18px;background:url({$GetInstallDir}space/skin/company01/feed_over.gif) no-repeat right 2px;height:12px;}
+
+#MainBody{width:910px;float:left;padding:15px 15px 0;background:#fff;position:relative;}
+
+#MainBodyTop{width:940px;background:url({$GetInstallDir}space/skin/company01/HeadUnTop.gif) no-repeat left top;height:5px;top:0;left:0;position:absolute;}
+
+#content{width:580px;float:left;padding:0 14px 0 0;border-right:1px solid #EEE;overflow:hidden;}
+
+.newvisitor{padding:10px 15px;overflow:hidden;}
+.newvisitor h1{color:#0A5D0A;padding:0;margin:0 0 5px;font-size:14px;}
+
+.newvisitor ul{padding:5px;}
+.newvisitor li{width:25%; float:left;text-align:center;}
+.newvisitor img{width:45px; height:45px;}
+
+
+.Post{padding:0;float:left;}
+
+.PostHead{clear:left;padding:10px;margin:0 0 10px;background:#f3eddc url({$GetInstallDir}space/skin/company01/PostHeadBottom.gif) no-repeat left bottom;position:relative;}
+
+* html .PostHeadTop{left:-10px;}
+
+.PostHeadTop{width:580px;background:url({$GetInstallDir}space/skin/company01/PostHeadTop.gif) no-repeat left top;position:absolute;top:0;left:0;height:5px;}
+
+.PostHead h1{color:#ff6600;padding:3px 0 0;margin:0 0 0 10px;font-size:14px;font-weight:bold;
+         width: 450px;
+         overflow: hidden;
+         white-space: nowrap;
+         -o-text-overflow: ellipsis;
+         text-overflow: ellipsis;
+		 background:url({$GetInstallDir}space/skin/company01/Novo_Dangos_001.gif) no-repeat; height:45px;
+		 padding-left:50px;
+		 line-height:45px;
+
+}
+
+
+.PostHead h1 a{color:#ff6600;text-decoration:none;}
+
+.PostHead h1 a:visited{color:#ff6600;text-decoration:none;}
+
+.PostHead h1 a:hover{color:#cc3000;text-decoration:none;}
+
+.xcContent{ height:130px; overflow:hidden;}
+
+.PostContent{padding:0;font-size:12px;line-height:20px;}
+
+.PostContent p{font-size:14px;line-height:180%;}
+
+.PostContent img{max-width:570px;}
+
+.PostContent pre,.PostContent code{border-left:5px solid #999999;margin:5px 0 15px;padding:10px 15px;background:#FFFFCC none repeat scroll 0%;line-height:1.5;}
+
+.PostContent blockquote{padding:2px 10px;margin:0;background:#fffae7;color:#993000;}
+
+.PostContent ul{padding:5px 0;margin:0;}
+
+.PostContent li{line-height:26px;}
+
+.PostContent a{text-decoration:underline;}
+
+
+#Footer{width:940px;clear:left;padding:15px 0 5px 0;background:url({$GetInstallDir}space/skin/company01/Footer.png) no-repeat left top;color:#e5ebf0;position:relative;}
+
+#Footer p{padding:0;margin:0;font-size:11px;line-height:19px;}
+
+#Footer p a{color:#FFF;}
+
+#Footer p a:hover{color:#C3EE7F;}
+
+
+#SideBar{width:300px;float:right;}
+
+
+#SideBar .special{margin:0 0 15px;}
+.text{padding:0;margin:10px 15px;width:280px;color:#999999;font-size:12px;}
+
+b.rtop,b.rbottom{display:block;background:#fff;}
+
+b.rtop b,b.rbottom b{display:block;height:1px;overflow:hidden;}
+
+b.r1{margin:0 5px;}
+
+b.r2{margin:0 3px;}
+
+b.r3{margin:0 2px;}
+
+b.rtop b.r4,b.rbottom b.r4{margin:0 1px;height:2px;}
+
+
+.ad-wrapper .inner-wrapper{padding:15px 25px;}
+
+.diggwrapper{width:300px;margin:0 0 15px;background:#E2F9E3;}
+
+.diggwrapper .inner-wrapper{padding:10px 15px; line-height:25px;overflow:hidden;}
+
+.diggwrapper h1{color:#0A5D0A;padding:0;margin:0 0 10px;font-size:14px;}
+
+.diggwrapper ul{padding:0;margin:0;}
+
+.diggwrapper ul li{margin-left:16px;list-style-image:none;list-style-position:outside;list-style-type:circle;color:#666;font-size:12px;line-height:24px;}
+
+.diggwrapper b.rtop b,.diggwrapper b.rbottom b{background:#E2F9E3;}
+
+
+
+#content form{margin:10px 0 15px;}
+
+
+#blocks td.block{border-bottom:1px solid #bbb;border-left-style:none;border-right:1px solid #bbb;border-top-style:none;margin:0;padding:2px 2px 2px 8px;}
+
+table{margin:0 0 10px;border-collapse:collapse;}
+
+tbody{border:none;}
+
+th{border:none;padding:6px 6px 6px 8px;background:#EEE;}
+
+td{ line-height:26px;padding:6px 5px;}
+</style>
+
+<body>
+<div id="Container">
+  <div id="ContainerTop"></div>
+  <div id="Header">
+      <div id="MenuTop">
+		  <ul>
+			{$JS_HomePage} | {$JS_Collection} | {$JS_ContactWebMaster}
+		  </ul>
+      </div>
+      <div id="navigation">{$GetTopUserLogin}</div>
+
+  </div>
+    <div id="HeadRight">
+        <h1>{$ShowBlogName}</h1>
+    </div>
+  <div id="MainMenu">
+    <div id="MainMenuTop"></div>
+    <ul>
+	 {$ShowNavigation}
+	</ul>
+  </div>
+<div id="MainBody">
+  <div id="MainBodyTop"></div>
+  <!-- start center -->
+  <div id="content">
+    <div class="Post">  
+		
+			<div class="PostHead">
+					 <div class="PostHeadTop"></div>
+					  <h1>{$ShowNewFresh}</h1>
+			</div>
+		  
+        <div class="PostContent">
+          <p>{$ShowNewLog}</p>
+        </div>
+
+ <div class="PostHead">
+    <div class="PostHeadTop"></div>
+		  <h1>最新供应</h1>
+		 </div>
+		  
+        <div class="PostContent">
+         <p> {$ShowSupply}</p>
+        </div>
+        <div class="clear"></div>
+       
+
+		 <div class="PostHead">
+			<div class="PostHeadTop"></div>
+			  <h1>公司相册</h1>
+		</div>
+		  
+        <div class="xcContent">
+          <p> {$ShowNewAlbum}</p>
+        </div>
+        
+		<div class="clear"></div>
+     
+
+		 <div class="PostHead">
+			<div class="PostHeadTop"></div>
+		    <h1>客户留言</h1>
+		</div>
+		  
+        <div class="PostContent">
+          {$ShowMessage}
+        </div>
+
+    </div>
+  </div>		
+  <div id="SideBar">
+
+<div class="diggwrapper" id="divArchives">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+	<div class="inner-wrapper">
+		<h1>企业简介</h1>
+		<ul>{$ShowShortIntro}{$GetRealName}
+</ul>
+      </div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b> </div>
+
+<div class="diggwrapper" id="divComments">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+	<div class="inner-wrapper">
+		<h1>企业新闻</h1>
+		<ul>{$ShowNews}</ul>
+      </div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b> </div>
+
+<div class="diggwrapper" id="divGuestComments">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+	<div class="newvisitor">
+		<h1>最新访客</h1>
+		<ul class="visitor">{$ShowVisitor}</ul>
+      </div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b> </div>
+
+
+<div class="diggwrapper">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+	<div class="inner-wrapper">
+		<h1>最新评论及回复</h1>
+		<ul>{$ShowComment}</ul>
+    </div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b> </div>
+
+
+<div class="diggwrapper" id="divFavorites">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+	<div class="inner-wrapper">
+		<h1>最新产品</h1>
+		<ul>{$ShowProductList}</ul>
+      </div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b> </div>
+
+
+
+</div>
+</div>
+
+<div id="Footer">
+Powered by Kesion.Com &copy; 2006-2012 
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{@ask.sitetitle}-{$GetSiteName}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta content="{$GetClass_Meta_KeyWord}" name=keywords>
+<meta content="{$GetClass_Meta_Description}" name=description>
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src='{$GetInstallDir}ks_inc/kesion.box.js' language="JavaScript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+		<script language="JavaScript">
+		<!--
+		function checkform(obj){
+			{IF:KS.C("UserName")="" And KS.ASetting(47)<>"1"}
+			 alert('对不起,请登录后再提问!');
+			ShowLogin();
+			return false;
+			{/IF}
+			if(obj.topic.value==""){
+				alert("友情提示\n\n请输入问题标题!");
+				obj.topic.focus();
+				return false;
+			}
+			if (Editor.getEditorContents()=='')
+			{
+				alert("友情提示\n\n请输入问题详细描述!");
+				return false;
+			}
+			
+			try{
+			if(obj.classid.value=="" && obj.smallclassid.value==""){
+				alert("友情提示\n\n请选择问题分类!");
+				return false;
+			}
+			}
+			catch(e){}
+			{IF:KS.ASetting(6)="1"}
+			if(obj.Verifycode.value==""){
+				alert("友情提示\n\n请输入验证码!");
+				obj.Verifycode.focus();
+				return false;
+			}
+			{/IF}
+			return true;
+		}
+		function resets(){
+		$('#topic').val("");
+		$('#askcontent').val("");
+		}
+		$(document).ready(function(){
+			   if(document.askedform.topic.value != "")	searchRelated(document.askedform.topic);
+		 
+				{IF:KS.C("UserName")="" And KS.ASetting(47)<>"1"}
+				 try{
+				 $("#topic").keydown(function(){
+					alert('对不起,请登录后再提问!');
+					ShowLogin();
+					return false;
+				 });
+				 $("#askcontent").keydown(function(){
+					 alert('对不起,请登录后再提问!');
+					ShowLogin();
+					return false;
+				 })
+				 
+				}catch(e){}
+			{/IF}
+		})
+		
+		function ShowLogin(){
+		new KesionPopup().popupIframe("会员登录","../user/userlogin.asp?Action=Poplogin",387,184,'no')
+		}
+		
+		var SearchRelatedUrl = 'ajax_search.asp?word=';
+		function searchRelated(searchField)
+		{
+		   var content = escape(searchField.value);
+		   if (content.length<2) return;
+		   $.get(SearchRelatedUrl,{word:content},function(result){
+			 $("#RelatedQuestionZone").html(unescape(result));
+		   })
+			
+		}
+        function InsertFileFromUp(FileList,fileSize,maxId,title)
+		  {
+		    var files=FileList.split('/');
+			var file=files[files.length-1];
+			var fileext = FileList.substring(FileList.lastIndexOf(".") + 1, FileList.length).toLowerCase();
+			if (fileext=="gif" || fileext=="jpg" || fileext=="jpeg" || fileext=="bmp" || fileext=="png")
+			  {
+				 insertHTMLToEditor('[img]'+FileList+'[/img]');	
+			  }else{
+			    var str="["+"UploadFiles"+"]"+maxId+","+fileSize+","+fileext+","+title+"[/UploadFiles]";
+				 insertHTMLToEditor(str);	
+			 }
+		}
+		function insertHTMLToEditor(codeStr) { 
+		  Editor.insertText(Editor.bbcode2html(codeStr));
+		} 		
+		//-->
+		</script>
+</head>
+<body>
+<!--网站头部通用-->
+{LB_首页头部}
+<div class="navigation">您当前位置：<a href="{$GetInstallDir}">{$GetSiteTitle}</a> &gt; <a href="{$GetInstallDir}ask">问吧首页</a> &gt; 我要提问</div>
+<div class="blank10 clear"></div>
+<div class="askxqmain">
+    <div class="left">
+	       <!--问题分类-->
+	       <div class="left01">
+		        <div class="title"><span></span>问题分类</div>
+				<div class="left01box">
+				      <div class="askbox1">
+						<ul>
+						   <li>问题总数：<span>{@ask.totalnum}</span> 条  <a href="all.asp">查看</a></li>
+						   <li>已解决问题数：<span>{@ask.resolvednum}</span> 条 <a href="all.asp?m=2">查看</a></li>
+						  <li>待解决问题数：<span>{@ask.unresolvednum}</span> 条 <a href="all.asp?m=1">查看</a></li>
+						</ul>
+					  </div>
+					  
+					  <div class="dotline clear"></div>
+				
+					  <div class="askbox2">
+						 <dl>
+						  {@ask.menulist}
+						 </dl>
+					   </div>
+				
+				</div>
+		   </div>
+		   <!--问题分类-->
+	</div>
+	<div class="right">
+	
+	 
+		   <!--相关提问-->
+		   <div class="askxg">
+		     <div class="title"><span></span>已解决的相关问题</div>
+			 <div class="askxgbox">
+			  <div id="RelatedQuestionZone"></div>
+			  <iframe name="_hideframe" style="display:none;"></iframe>
+			 </div>
+			</div>
+			 <!--相关提问-->
+			  <div class="clear blank10"></div>
+		  <div class="twbox"> 
+		   <!--提问-->
+		     <div class="title"><span></span>我要提问 </div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="6" class="ask_box">
+			
+			<form name="askedform" id="askedform" method="post" action="?" target="_hideframe" onSubmit="return checkform(this);">
+			<input type="hidden" name="action" value="save">
+			<input type="hidden" name="askUserID" value="{@get.askuserid}">
+			<tr>
+				<td width="15%" align="left">问题描述：</td>
+				<td width="85%"><input type="text" size="75" name="topic" id="topic" value="{@get.question}" maxlength="150" onKeyUp="searchRelated(this)" /> <font color="red">*</font></td>
+			</tr>
+			
+			
+			<tr>
+				<td align="left">详述问题：</td>
+				<td><span>请详细描述您的问题，描述越细致，越容易得到准确回答。</span><textarea style="display:none" name="askcontent" id="askcontent" cols="80" rows="8" wrap="PHYSICAL"></textarea>
+
+				<iframe id="Editor" name="Editor" src="../editor/ubb/simple.html?id=askcontent" frameBorder="0" marginHeight="0" marginWidth="0" scrolling="No" style="height:215px;width:550px"></iframe>
+				<br>
+				{$ShowUpfiles}
+				
+				
+				</td>
+			</tr>
+			<tr>
+				<td align="left">问题分类：</td>
+				<td>
+				<script src="category.asp" language="javascript"></script>
+				<div style="clear:both"><font color="red">*</font> <span>请您选择正确的分类，以使您的问题得到更专业的解答。</span></div></td>
+			</tr>
+			<tr>
+			  <td align="left">有效天数：</td>
+			  <td><input type=text name="ExpiredDays" maxLength=6 size="8" value="15" tabindex="3" class="textbox">
+			    天过提问时间指定的天数之后，问题将被关闭。 </td>
+			  </tr>
+			<tr>
+				<td align="left">悬 赏 分：</td>
+				<td><select name="scores">
+					<option value="0">无悬赏</option>
+					<option value="5">5分</option>
+					<option value="10">10分</option>
+					<option value="15">15分</option>
+					<option value="20">20分</option>
+					<option value="30">30分</option>
+					<option value="50">50分</option>
+					<option value="80">80分</option>
+					<option value="100">100分</option>
+				</select> 
+				您当前的积分是 <font color="red">{@Get.UserScore}分</font>
+				<span>设置悬赏可以吸引到更多更精彩的回答。</span></td>
+			</tr>
+			<tr>
+				<td align="left">匿名设定：</td>
+				<td><input type="checkbox" name="anonym" id="anonym" value="1"/>
+				<span>您可以对问题设定匿名，但您需要付出积分 <font color="red">{@Get.AnonymScore}分</font>。</span></td>
+			</tr>
+			 {IF:KS.ASetting(6)="1"}
+			<tr>
+				<td align="left">验 证 码</td>
+				<td><script>writeVerifyCode('{$GetInstallDir}',1)</script></td>
+			</tr>
+			{/IF}
+			 
+			<tr>
+				<td align="right"></td>
+				<td><input  type="image" src="/images/tjwtbtn.gif" name="asksubmit" id="asksubmit"/></td>
+			</tr>
+			</form>
+			</table>
+           <!--提问end-->
+		   
+		
+		 </div>
+		 
+		  
+			 
+			 
+	</div>
+</div>
+
+<!--问答详情end-->
+<!--问答主体start-->
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

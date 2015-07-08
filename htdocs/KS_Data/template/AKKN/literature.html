@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/AKKN/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/AKKN/style/index.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/fun.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/form.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/AKKN/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+</head>
+
+<body>
+<div class="headDiv headDiv2">
+{LB_头部}
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.nav').find('a').eq(4).addClass('aNow');
+	})
+</script>
+
+<div class="wal">
+<!--wal-->
+<div class="pageNow">
+     <div class="title">{$GetClassName}：</div>
+     <div class="now"><span>当前位置 ：</span><a href="{$GetInstallDir}index.html">首页</a> - <a href="{$GetInstallDir}html/platform/index.html">平台服务</a> - {$GetClassName}</div>
+     <div class="search">
+     {LB_搜索}
+     </div>
+</div>
+
+<!--<div class="news">
+     <dl>
+       <dt><a href="newShow.asp"><img src="image/limg275_1.jpg" width="275" height="129" /></a></dt>
+       <dd>
+           <div class="name"><a href="newShow.html">爱科凯能钬激光产品正式挺进欧洲</a></div>
+           <div class="content">
+           2013年第45届德国国际医疗器械及设备展览会于11月20日-23日在杜塞尔多夫举办。我公司于此次展会展示了针对,我公司于此次展会展示了针对我公司于此次展会展示了针对，我公司于此次展会展示了针对,我公司于此次展会展示了针对我公司于此次展会展示了针对...
+           </div>
+           <a href="newShow.asp" class="more">详细内容 >></a>
+       </dd>
+     </dl>
+     <ul>
+       <li><a href="newShow.asp">引领学术新发展，爱科凯能华丽展示</a><span>2012-05-11</span></li>
+     </ul>
+</div>-->
+<div class="news">
+{LB_文献资料推荐}
+</div>
+{SQL_akkn文献资料()}
+<div class="pageNum"></div>
+<!--walEnd-->
+</div>
+<div class="h30"></div>
+
+{LB_底部}
+</body>
+</html>

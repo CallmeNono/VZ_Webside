@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/WZ/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/WZ/style/index.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/WZ/style/green.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/WZ/script/fun.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/WZ/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+<style type="text/css">
+body{background:url({$GetInstallDir}images/WZ/image/bodyBg2.jpg) center bottom no-repeat; background-size:100%;}
+</style>
+</head>
+
+<body>
+{LB_传媒页头}
+<div class="headDiv">
+<div class="wal">
+      <div class="nav">
+            {LB_传媒green版块导航}
+      </div>
+</div>
+</div>
+<script type="text/javascript">
+$('.nav').find('a').eq(5).addClass('aNow');
+</script>
+
+<div class="wal">
+<!--wal-->
+<div class="servicePart1"><a href=""><img src="{$GetInstallDir}images/WZ/image/img1000_4.jpg" alt="" /></a></div>
+<div class="pageTitle">
+      <i></i>
+      <div>Contact</div>
+      <span>联系我们</span>
+</div>
+<div class="contact">
+      <div class="bg">
+      {$GetClassIntro}
+      </div>
+</div>
+<!--walEnd-->
+</div>
+
+{LB_右侧浮动图标}
+<div class="footDiv2">
+      {LB_网站底部版权}
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/AKKN/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/AKKN/style/index.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/fun.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/form.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/AKKN/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+</head>
+
+<body>
+<div class="headDiv">
+{LB_头部}
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.nav').find('a').eq(0).addClass('aNow');
+	})
+</script>
+
+<div class="indexFlash fadeFlash">
+     {LB_akkn首页焦点图}
+     <div class="btn">
+      <div class="wal">
+      <a href="javascript::" class="leftBtn"></a>
+      <a href="javascript::" class="rightBtn"></a>
+      </div>
+     </div>
+</div>
+
+<div class="indexPart1">
+<div class="wal">
+      <div class="fl">
+            <div class="indexTitle">
+                <div class="name"><span>新闻资讯</span>Company News</div>
+                <a href="{$GetInstallDir}html/about/news/index.html" class="more"></a>
+            </div>
+            <div class="indexNews1">
+                 {LB_首页新闻}
+            </div>
+      </div>
+      <div class="fr">
+            <div class="indexTitle">
+                <div class="name"><span>学术动态</span>Academic News</div>
+                <a href="{$GetInstallDir}html/platform/scholarship/index.html" class="more"></a>
+            </div>
+            <div class="indexNews2">
+                <ul>
+                  {LB_首页学术动态}
+                </ul>
+            </div>
+      </div>
+</div>
+</div>
+
+<div class="indexPart2">
+<div class="wal">
+      <div class="fl">
+            <div class="indexTitle">
+                <div class="name"><span>主要产品</span>Important Product</div>
+            </div>
+            <div class="indexProduct">
+                <a href="javascript:;" class="leftBtn"></a>
+                <a href="javascript:;" class="rightBtn"></a>
+                <div class="list">
+                     <ul>
+                       {SQL_首页产品()}
+                     </ul>
+                </div>
+            </div>
+      </div>
+      <div class="fr">
+            <div class="indexTitle">
+                <div class="name"><span>产品适用范围</span>Indications</div>
+            </div>
+            <div class="indexIndications">
+                  {LB_首页适用范围}
+            </div>
+      </div>
+</div>
+</div>
+
+{LB_底部}
+</body>
+</html>

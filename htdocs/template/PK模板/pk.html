@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>观点pk－{$GetSiteName}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.box.js"></script>
+<script src="jquery.bindto.js"></script>
+<script type="text/javascript">
+ var pkid={$GetPKID};
+ var isLogin=false;
+ function CheckLogin()
+ {
+    if (isLogin==true) return;
+     $.ajax({
+			  url: "pkajax.asp",
+			  cache: false,
+			  data: "action=checklogin&id=" + pkid,
+			  success: function(r){
+			        r=unescape(r);
+				  	var arrobj=r.split('|');
+					if (arrobj[0]!="success")
+					{
+						if (arrobj[0]=="login")
+						{
+						  showlogin();
+						}else{
+						Alert(arrobj[0],arrobj[1],arrobj[2]);
+						}
+					}else{
+					  isLogin=true;
+					}
+					
+			  }
+			  });
+
+ }
+function showlogin(){
+    var p=new KesionPopup();
+	p.MsgBorder=1;
+	p.ShowBackground=false;
+	p.BgColor='#fff';
+	p.TitleCss="font-size:14px;background:#1B76B7;color:#fff;height:22px;";
+    p.popupIframe('<img src="../../user/images/icon18.png" align="absmiddle">会员登录','../../user/userlogin.asp?Action=Poplogin',430,204,'no');
+}
+function submitCheck(role){
+ var content=''
+ if (role==1)
+ {
+    if (jQuery("#agreeContent").val()=='')
+	{
+	   Alert(1,"请输入您的观点!",'jQuery("#agreeContent").focus();');
+	   return;
+	}
+	content=jQuery("#agreeContent").val();
+ }else if(role==2){
+    if (jQuery("#argueContent").val()=='')
+	{
+	   Alert(1,"请输入您的观点!",'jQuery("#argueContent").focus()');
+	   return;
+	}
+	content=jQuery("#argueContent").val();
+ }else{
+    if (jQuery("#otherContent").val()=='')
+	{
+	   Alert(1,"请输入您的观点!",'jQuery("#otherContent").focus()');
+	   return;
+	}
+	content=jQuery("#otherContent").val();
+ }
+    $.post("pkajax.asp",{action:'savepost',id:pkid,content:escape(content),role:role}, function(r){
+			      r=unescape(r);
+				  var arrobj=r.split('|');
+				  if (arrobj[0]!="success")
+				  {
+				    	if (arrobj[0]=="login")
+						{
+						  showlogin();
+						}else{
+						Alert(arrobj[0],arrobj[1],arrobj[2]);
+						}
+				  }else{
+				      Alert(2,"恭喜,您的观点提交成功!",null);
+					  setpkimg();
+					  setpkgdlist();
+					  jQuery("#agreeContent").val('');
+					  jQuery("#argueContent").val('');
+					  jQuery("#otherContent").val('');
+				  }
+			  }
+	);
+	
+
+	
+
+}
+
+//设置PK图片显示
+function setpkimg() {
+	var agreeNum = 0;
+	var argueNum = 0;
+	 
+	  $.ajax({
+			  url: "pkajax.asp",
+			  cache: false,
+			  data: "action=getvotes&id=" + pkid,
+			  success: function(r){
+			    r=unescape(r)
+				var arr=r.split('|');
+			   agreeNum=parseInt(arr[0]);
+			   argueNum=parseInt(arr[1]);
+				$("#agreenum").html(agreeNum+"人支持");
+				$("#arguenum").html(argueNum+"人支持");
+			
+				var total = agreeNum + argueNum;
+				var h3Width = 70;
+				var imgAgreeSpan = imgArgueSpan = 300;
+				var imgAgree = imgArgue = imgAgreeSpan + h3Width;
+				
+				if (total != 0)	{
+					var totalSpan = imgAgreeSpan * 2;
+					imgAgreeSpan = Math.round(agreeNum / total * totalSpan);
+					imgAgree = imgAgreeSpan + h3Width;
+					imgArgueSpan = totalSpan - imgAgreeSpan;
+					imgArgue = imgArgueSpan + h3Width;
+				}
+			
+				$("#pk_yes").css("width", imgAgree);
+				$("#pk_no").css("width", imgArgue);
+				$("#img_agree").css("width", imgAgreeSpan);
+				$("#img_argue").css("width", imgArgueSpan);			  
+			  }
+      });
+
+
+
+}
+
+
+function setpkgdlist()
+{
+	$.getScript("pkajax.asp?action=getgdlist&role=1&id="+pkid);
+	$.getScript("pkajax.asp?action=getgdlist&role=2&id="+pkid);
+	$.getScript("pkajax.asp?action=getgdlist&role=3&id="+pkid);
+
+}
+function showagree(commentJsonVarStr___){
+	data=formattime(commentJsonVarStr___);
+	if (data.comments != null) {
+		//绑定模板
+		var node = $($(".agreetpl").html()).bindTo(data);
+		//显示
+		$("#agreecomm").html(node);
+	}
+		
+}
+
+function showargue(commentJsonVarStr___){
+	data=formattime(commentJsonVarStr___);
+	if (data.comments != null) {
+		//绑定模板
+		var node = $($(".arguetpl").html()).bindTo(data);
+		//显示
+		$("#arguecomm").html(node);
+	}
+}
+
+function showother(commentJsonVarStr___){
+	data=formattime(commentJsonVarStr___);
+	if (data.comments != null) {
+		//绑定模板
+		var node = $($(".othertpl").html()).bindTo(data);
+		//显示
+		$("#othercomm").html(node);
+	}
+}
+
+
+
+//格式化时间
+function formattime(data){
+	var str = null;
+	if (data.comments != null) {
+		for(i=0; i<data.comments.length;i++) {
+			str = /^(\d+)\-(\d+)\-(\d+)(?:\s+(\d+):(\d+)(?::(\d+))?)?$/.exec(data.comments[i]['comment_date']);
+			data.comments[i]['comment_date'] = str[1]+'/'+str[2]+'/'+str[3]+' '+str[4]+':'+str[5];
+		}
+	}
+	return data;
+}
+
+$(document).ready(function(){
+	setpkimg();
+	setpkgdlist();
+});
+
+ 
+</script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+<!--网站头部通用-->
+{LB_首页头部}
+<div class="banner965">{=GetAdvertise(6)}</div>
+<div class="blank10 clear"></div>
+<div class="navigation">您当前位置：<a href="{$GetSiteUrl}">{$GetSiteName}</a>  &gt;&gt; <a href="{$GetInstallDir}plus/pk">观点PK台</a> >> {$GetPKTitle}</div>
+<div class="blank10 clear"></div>
+<!--pkmain-->
+<div class="pkmain">
+     <h3>{$GetPKTitle}</h3>
+	 <div class="clear"></div>
+	 <div class="groundnews">{$GetBackGroundNews}</div>
+	 <div class="blank10 clear"></div>
+	 
+	 <div class="pkbg">
+	    <div class="pkl"><h3 id="agreenum">0人支持</h3>{$GetZFTips}</div>
+		<div class="pkm"></div>
+		<div class="pkr"><h3 id="arguenum">0人支持</h3>{$GetFFTips}</div>
+	 </div>
+	  <div class="blank10 clear"></div>
+	  
+	  <div class="pktest">
+	        <div class="pkyes">
+			     <h2>观点A</h2>
+				 <div class="clear blank10"></div>
+				 <div class="PKbj"><span><a href="javascript:;" onclick="submitCheck(1);return false;" /></a></span></div>
+				 <div class="clear"></div>
+                 <div class="Atextarea">
+				     <textarea name="agreeContent" onfocus="if(this.value=='支持观点A请在这里发表自己的观点！'){this.value='';}" onblur="if(this.value==''){this.value='支持观点A请在这里发表自己的观点！'}" id="agreeContent" class="textLogin" onclick="CheckLogin()" />支持观点A请在这里发表自己的观点！</textarea>
+				 </div>
+                  <div class="clear"></div>
+				 <div class="pkbtn">
+				       <a href="javascript:;" onclick="submitCheck(1);return false;" /></a>
+				 </div>
+                 <div class="clear blank10"></div>
+                
+				 <div class="pkalist">
+				       <h3><span><a href="more.asp?pkid={$GetPKID}&role=1" target="_blank" class="Agray">更多>></a></span>查看网友观点</h3>
+					   <div class="clear"></div>
+				     <!--支持模板-->
+									<div class="agreetpl" style="display:none">
+									<!--data-->
+									<!--comments-->
+									   <div class="acontents">
+									      <span>【{uname}】</span>：{comment_contents}
+									   
+									    <p>{client_ip}&nbsp;&nbsp;发表：{comment_date}</p>
+										</div>
+									<!--comments-->
+									<!--data-->
+									</div>
+									<!--支持模板结束-->
+					
+					
+					<!--显示支持-->
+									<div id="agreecomm_nopass"></div>
+									<div id="agreecomm"></div>
+				 </div>
+ 
+			</div>
+			<div class="pkother">
+					<h2>发表其它观点</h2>
+					<div class="Ctextarea">
+						 <textarea name="otherContent" onfocus="if(this.value=='我要发表其它观点...'){this.value='';}" onblur="if(this.value==''){this.value='我要发表其它观点...'}" onclick="CheckLogin()" id="otherContent" class="input02">我要发表其它观点...</textarea>
+					</div>
+					 <div class="clear"></div>
+						 <div class="pkbtn">
+							   <a href="javascript:;" onclick="submitCheck(3);return false;" /></a>
+						 </div>
+					   <div class="clear blank10"></div>
+						
+						 <div class="pkclist">	
+						  <h3><span><a href="more.asp?pkid={$GetPKID}&role=3" target="_blank" class="Agray">更多>></a></span>查看网友观点</h3>
+							   <div class="clear"></div> 
+								<!--第三方模板-->
+							<div class="othertpl" style="display:none">
+							<!--data-->
+							<!--comments-->
+											   <div class="ccontents">
+												  <span>【{uname}】</span>：{comment_contents}
+											   
+												<p>{client_ip}&nbsp;&nbsp;发表：{comment_date}</p>
+												</div>
+											<!--comments-->
+							<!--data-->
+							</div>
+					<!--第三方模板结束-->
+					
+					<!--显示第三方-->
+						<div id="othercomm_nopass"></div>
+		                <div id="othercomm"></div>
+						 </div>
+				 
+			
+			</div>
+			<div class="pkno">
+			   <h2>观点B</h2>
+			      <div class="clear blank10"></div>
+				 <div class="PKbj"><span><a href="javascript:;" onclick="submitCheck(2);return false;"/></a></span></div>
+				 <div class="clear"></div>
+                 <div class="Atextarea">
+				     <textarea name="argueContent" onfocus="if(this.value=='支持观点B请在这里发表自己的观点！'){this.value='';}" onblur="if(this.value==''){this.value='支持观点B请在这里发表自己的观点！'}" id="argueContent" class="textLogin" onclick="CheckLogin()" />支持观点B请在这里发表自己的观点！</textarea>
+				 </div>
+                  <div class="clear"></div>
+				 <div class="pkbtn">
+				       <a href="javascript:;" onclick="submitCheck(2);return false;" /></a>
+				 </div>
+                 <div class="clear blank10"></div>
+                
+				 <div class="pkalist">
+				       <h3><span><a href="more.asp?pkid={$GetPKID}&role=2" target="_blank" class="Agray">更多&gt;&gt;</a></span>查看网友观点</h3>
+					   <div class="clear"></div>
+				     <!--支持模板-->
+									<div class="arguetpl" style="display:none">
+									<!--data-->
+									<!--comments-->
+									   <div class="acontents">
+									      <span>【{uname}】</span>：{comment_contents}
+									       <p>{client_ip}&nbsp;&nbsp;发表：{comment_date}</p>
+										</div>
+									<!--comments-->
+									<!--data-->
+									</div>
+									<!--支持模板结束-->
+					<!--显示支持-->
+									<div id="arguecomm_nopass"></div>
+							<div id="arguecomm"></div>
+				 </div>
+			</div>
+	  </div>
+	 
+	 
+	 
+<!--pkmain end-->
+</div>
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

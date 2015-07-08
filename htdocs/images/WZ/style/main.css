@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin:0px; padding:0px; font-size:12px; font-family:"微软雅黑"; color:#333;}
+a{color:#333; text-decoration:none; outline:none;}
+a:active{star:expression(this.onFocus=this.blur());} 
+img{border:0px;}
+a:link {text-decoration: none; outline:none;}
+a:visited{text-decoration: none; outline:none;}
+a:hover{text-decoration:none; color:#c00; outline:none;}
+ul, p, dl, dt, dd{padding:0px; margin:0px;}
+li{list-style-position:outside; list-style-type:none;}
+h1, h2, h3, h4, h5{font-size:14px; padding:0px; margin:0px;}
+h1{font-size:16px;}
+h5{font-size:12px;}
+.fl{float:left;}
+.fr{float:right;}
+.clear_f{clear:both; height:0px; padding:0px; margin:0px; display:block; _display:inherit;}
+.h10{height:10px; overflow:hidden; clear:both;}
+.h20{height:20px; overflow:hidden; clear:both;}
+
+.wal{width:1000px; margin:0px auto;}
+.f16{font-size:16px;}
+
+.logo{position:absolute; z-index:10; left:100px; top:0px;}
+
+.sideBar{position:absolute; z-index:10; left:0px; top:50%; margin-top:-230px; width:50px; text-align:center;}
+.sideBar .imgDiv{padding-bottom:10px;}
+.sideBar li{padding-top:10px;}
+
+.indexBtn{position:absolute; z-index:10; right:50px; top:50px; width:200px; overflow:hidden;}
+.indexBtn .name a{display:block; height:40px; line-height:40px; overflow:hidden; font-size:16px; background:url(../image/ico1.png) 10px center no-repeat; padding-left:28px;}
+.indexBtn .nameNow a{background:url(../image/ico1Hover.png) 10px center no-repeat;}
+
+.footDiv{position:absolute; z-index:10; left:0px; bottom:0px; width:100%; background:url(../image/footBg.png); text-align:center; color:#ccc;}
+.footDiv a, .footDiv2 a{color:#ccc;}
+.footDiv a:hover, .footDiv2 a:hover{color:#fff;}
+.footDiv .msg, .footDiv2 .msg{color:#FFF; font-size:14px; padding:20px 0 10px 0;}
+.footDiv .content, .footDiv2 .content{line-height:22px; padding-bottom:20px;}
+.footDiv2{background:url(../image/footBg.png); text-align:center; color:#ccc;}
+
+.pageLogo{position:absolute; z-index:10; left:50%; top:0px; margin-left:-700px;}
+.topTel{position:absolute; z-index:10; right:0; top:0px; background:#000 url(../image/topTel.gif) left top no-repeat; height:39px; line-height:39px; width:300px; overflow:hidden; font-size:17px; color:#FFF; white-space:nowrap; padding-left:85px;}
+.topBtn{position:absolute; z-index:10; right:105px; top:75px;}
+.topBtn li{float:left; padding-left:40px;}
+.topBtn .a1{display:block; float:left; font-size:16px; background:url(../image/home.png) left center no-repeat; padding-left:15px; height:25px; line-height:25px; overflow:hidden;}
+.headDiv{height:188px; overflow:hidden; border-bottom:#e0e0e0 solid 5px;}
+.headDiv .wal{height:188px; position:relative;}
+
+.nav{position:absolute; z-index:1; right:0px; top:135px;}
+.nav li{float:left; padding-left:5px;}
+.nav a{display:block; float:left; height:53px; padding-left:35px; width:80px; overflow:hidden; letter-spacing:-1px; color:#000; cursor:pointer; background:url(../image/navIco1.png) 6px 10px no-repeat;}
+.nav a div{font-size:15px; letter-spacing:1px; padding:10px 0 0 0;}
+.nav a:hover{background:url(../image/navIco2.png) 6px 10px no-repeat; color:#c41127;}
+.nav .aNow, .nav .aNow:hover{background:#c41127 url(../image/navIco3.png) 6px 10px no-repeat; color:#FFF;}
+
+.pageTitle{height:105px; overflow:hidden; position:relative;}
+.pageTitle i{position:absolute; z-index:1; left:0px; top:0px; display:block; background:url(../image/pageTitle.png) left top no-repeat; width:163px; height:95px; overflow:hidden; font-size:1px;}
+.pageTitle div{font-family:Arial; color:#b5b5b5; padding:8px 0 0 165px; border-top:#e0e0e0 solid 5px; font-size:30px;}
+.pageTitle span{padding-left:165px; font-size:28px; color:#d3556b; position:relative; top:-3px;}
+
+.sideFx{position:fixed; z-index:100; left:0px; top:250px; width:42px; overflow:hidden;}
+.sideFx li{height:60px; overflow:hidden;}
+.sideFx a{display:block; height:35px; text-align:center; padding-top:9px; background:#cf5268;}
+.sideFx img{width:26px; height:26px;}
+
+.ewmLayer2{position:fixed; z-index:100; left:0px; top:365px; left:42px; display:none;}
+
+
+
+
+
+

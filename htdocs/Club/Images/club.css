@@ -1,0 +1,449 @@
+﻿*{margin:0;padding:0;word-wrap:break-word;}
+body {margin: 0px auto; font: 12px/1.5em Arial Helvetica "sans-serif"; height: 100%;  font-size:12px; background:#E8EFF6;}
+html, body, h1, h2, h3, h4, ul, li, dl,input{ font-family:Arial, Helvetica, sans-serif;  margin:0px;padding:0px;list-style-type:none }
+a{color:#333;text-decoration:none;}
+a:hover{text-decoration:underline;}
+a img{border:none;} 
+div,ul,li,p,form{padding: 0px; margin: 0px;list-style-type: none;}
+em{font-style: normal;font-weight: normal;}
+table {padding: 0px; margin: 0px;list-style-type: none;}
+dt,dl,dd {padding: 0px; margin: 0px;list-style-type: none;}
+form{margin:0px;padding:0px;}
+tr {padding: 0px; margin: 0px;list-style-type: none;}
+h3,h4{padding:0px; font-size:14px; font-weight:bold;}
+.clear {clear:both;height:0px; overflow:hidden;}
+.blank8{height:8px;overflow:hidden;}
+.dotline{border-bottom:#CCC 1px dashed;margin:8px;}
+.annex{margin :15px; border : 1px dashed #999; padding : 5px;background : #f9f9f9; line-height : normal;}
+.quote{padding-left:5px;margin-right:15px;margin-top: 15px;border:1px dashed #CCC;background:#f7f7f7 url(blockquote.png) right top no-repeat;}
+
+
+.clubtop{width:100%;margin:0px auto;background:url(../../user/images/topbg.png) repeat-x;height:78px; overflow:hidden;}
+.clubtopbox{width:980px; margin:0px auto;}
+.clubtopbox .logo{width:168px; float:left;}
+.clubtopbox .logo img{}
+
+.clubtopbox .clubnav{width:430px; float:left;}
+.clubtopbox .clubnav ul{margin-left:0px;}
+.clubtopbox .clubnav li{float:left;  line-height:69px; border-right:#F5F4F4 1px solid;}
+.clubtopbox .clubnav a{ float:left; display:block; padding:0px 21px;text-align:center; font-size:14px; font-weight:bold; color:#000; text-align:center;}
+
+
+.clubtopbox .clubnav li.home{ background:url(../../user/images/fco1.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.homecurr{ background:#F1F2F2 url(../../user/images/fco1.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.wb{ background:url(../../user/images/fco5.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.wbcurr{background:#F1F2F2 url(../../user/images/fco5.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.lt{ background:url(../../user/images/fco4.gif) no-repeat 13px 25px; padding-left:13px;}
+.clubtopbox .clubnav li.ltcurr{ background:#F1F2F2 url(../../user/images/fco4.gif) no-repeat 13px 25px; padding-left:13px;}
+.clubtopbox .clubnav li.hy{ background:url(../../user/images/fco2.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.hycurr{background:#F1F2F2 url(../../user/images/fco2.gif) no-repeat 13px 22px; padding-left:13px;}
+.clubtopbox .clubnav li.mh{ background:url(../../user/images/fco3.gif) no-repeat 13px 23px; padding-left:13px;}
+.clubtopbox .clubnav li.mhcurr{background:#F1F2F2 url(../../user/images/fco3.gif) no-repeat 13px 23px; padding-left:13px;}
+.clubtopbox .clubnav a:hover{ color:#ff3300; text-decoration:none;}
+
+
+
+
+.clubtopbox .poplogin{width:375px;overflow:hidden; float:right;}
+
+/*顶部登录*/
+.fastlgs{margin-top:8px;padding-left:20px;line-height:19px;width:375px;}
+.fastlg{margin-top:13px;float:left;}
+.fastlg1{margin-top:10px;float:left;}
+.verificcode{width:38px;}
+.fastlg .c,.fastlg1 .c{padding-left:4px;_padding-left:0px;width:207px;_width:222px;float:right; line-height:25px;}
+.fastlg .r,.fastlg1 .r{border-left:1px solid #d8d8d8;padding-left:8px;padding-bottom:10px;width:60px;float:right; line-height:23px;}
+.fastlg .l,.fastlg1 .l{height:56px;width:90px;_width:75px;float:left;color:#999999;text-align:center; border-right:#d8d8d8 1px solid; line-height:23px;}
+.fastlg .faceborder{background:url(../../images/default/facebg.gif);height:46px;width:46px;}
+.fastlg .faceborder img{ border:#d8d8d8 1px solid; padding:2px; background:#fff;}
+.btn{ padding:0px 5px; height:22px; line-height:20px;}
+
+/*微博*/
+.transdiv{padding:10px;width:380px;color:#999;}
+.transdiv .transtxt{padding:3px;color:#888;border:1px solid #efefef;width:380px;height:60px;overflow:auto;}
+
+/*头像*/
+.avatar48 { padding: 5px 0 0 5px; width: 55px; height: 55px; background: url(../../user/images/48_avatar_bg.gif) no-repeat; }
+.avatar48 img { width: 48px; height: 48px; }
+
+/*主体*/
+
+.wrap{width:990px; margin:0px auto;}
+.bbsmain{width:980px; margin:0px auto; padding-top:10px;}
+
+.club_t2{width:960px; margin:0px auto; background:#F8F8F8; height:31px;border:#DFDFDF 1px solid;padding:3px 8px; }
+.club_t2 .club_weibo{width:585px; float:left;padding-left:0px; line-height:31px; font-family:"Times New Roman", Times, serif; overflow:hidden; white-space:nowrap;}
+.club_t2 .club_pos{width:585px; float:left; background:url(pt_icn.png) no-repeat 0px 7px; padding-left:22px; line-height:31px; font-family:"Times New Roman", Times, serif; overflow:hidden; white-space:nowrap;}
+.club_t2 .club_pos a{}
+
+
+.clubso{width:351px;float:right;}
+.clubso .search{ background:url(bbssea.gif) no-repeat; height:31px; } 
+
+/*下拉选项*/
+.clubso .search #stype{width:76px;height:31px; line-height:31px;position:relative;padding-top:3px; *+padding-top:5px;text-align:center;font-size:14px;float:left;}
+.clubso .search #stype ul{display:none;list-style:none;margin:0;padding:0;width:76px;border:#C8E7FF 1px solid;border-top:none;background:#F6FBFF;position:absolute;top:29px;left:1px;}
+.clubso .search #stype ul li{padding:0px 5px;cursor:pointer;color:#0A5499;}
+.clubso .search #stype ul .li2{background:#2FA3E4;color:#fff;}
+.clubso .search #stype span{display:block;width:53px;padding-left:8px;height:23px;line-height:23px;cursor:pointer;color:#0A5499;}
+.search_key{background:none;height:31px;width:220px; line-height:31px;padding-left:2px;border:none;float:left;color:#ccc;font-size:14px;}
+
+.search_button{width:42px;height:31px;border:none;background:url(bbssea.gif) no-repeat right top;float:left;}
+.ShowKeySearch{width:968px;margin:0px auto; margin-top:10px;background:url(catname_bg.gif) repeat-x; height:34px; line-height:34px;padding-left:10px;border:#C6D9E7 1px solid; border-bottom:none; font-size:14px;}
+
+
+/*顶部广告*/
+.club_t3{width:980px; margin:0px auto;}
+.tablebody1 {background-color : #fff;line-height : normal;height:30px;*+height:25px;border-right:1px solid #E7F0F5;}
+.tablebody1 li{list-style:inside;}
+.tableborder1{ margin:0 auto;width:980px;border:0px;background-color : #C6D2E3; padding:0px;margin-top:5px;margin-bottom:2px;}
+.tableborder1 td{ text-align:left;padding:3px 0px 3px 2px;color:#666}
+
+.club_banner{width:980px; margin:0px auto;}
+
+
+/*论坛首页框架*/
+.mainlist{background:#fff;height:100%;*+height:auto;_height:auto; overflow:hidden;}
+.mainlist .mainleft{width:720px;_width:718px;float:left;margin:4px;}
+.mainlist .mainleft .fbbutton{height:31px;overflow:hidden;}
+.mainlist .mainleft .fbbutton a{ padding:0px 5px;}
+
+.mainlist .mainleft .blist{}
+
+
+.mainleft1{width:978px;margin-top:-18px}
+.mainlist .mainright{width:244px;float:right;border-left:1px solid #ccc;}
+
+/*首页版块横排*/
+.board_ico{float:left;width:31px;margin-left:5px;}
+.board_img{float:left;width:85px;}
+.board_g{height:50px;padding:10px;vertical-align:top;}
+.board_g dl{margin-left:31px;padding-left:5px;}
+.board_g dt{ color:#ff3300;}
+.board_g dt a{ color:#3767AF; font-weight:bold;}
+.board_g dd{ color:#999;}
+em{font-style:normal;}
+.board_row td{border-top:1px dashed #CDCDCD;}
+.board_g .lastpost a{color:#999;}
+.closeicon{float:right;padding-right:20px;cursor:pointer}
+
+/*帖子数*/
+.hns{padding:0px 0;}
+.hns table{width:100%;}
+.hns th,.hns td{color:#555;font-weight:normal;height:45px; text-align:center;font-size:12px;}
+.sd .hns th,.sd .hns td{width:33% !important;}
+.hns th{border-right:1px solid #EFEFEF;}
+.hns th p,.hns td p{font-size:18px;margin:0;}
+.hns a{ padding:0px 5px;}
+
+
+/*浏览数,回复数*/
+.tns{padding:0px 0;width:140px}
+.tns table{width:100%;}
+.tns th,.tns td{ background:#fff ;font-weight:normal; height:22px; line-height:22px;text-align:center;font-size:12px;}
+.sd .tns th,.sd .tns td{width:110px !important;}
+.tns th{border-right:1px solid #CCC;}
+.tns th p,.tns td p{font-size:18px;margin:0;}
+.tns th a{ color:#006699;}
+.tns td a{ color:#006699;}
+
+
+.zhuti{padding-left:12px;font-size:18px;font-weight:bold;color:#333; line-height:32px;}
+.zhuti span{padding-left:2px;font-size:12px; font-weight:bold; color:#555; line-height:32px;}
+.zhuti span a{ color:#555;}
+.zhuti img{margin-left:100px; margin-top:-20px;}
+.hits{font-size:14px;font-weight:bold;}
+.topicleft{border-right:1px solid #B3C5D1;color:#555;width:165px;border-bottom:5px #B4D5ED solid;}
+.topicleft .usermenu{padding-left:10px;padding-top:8px;line-height:23px;}
+.topicleft .usermenu .username{margin-bottom:5px;width:160px;margin-left:-10px;padding-left:5px;height:27px;border-bottom:1px dashed #ccc}
+.topicleft li{list-style-type:none}
+
+.nopurview{padding-left:5px;margin-right:15px;margin-top: 15px; margin-bottom:10px;background-color: #fff; border: 1px dashed #f9c943; line-height:30px;m}  /*帖子权限,管理员可见的提示*/
+.replytips{padding-left:5px;margin-top: 15px; border: 1px dashed #cccccc; line-height:30px;}  /*帖子权限,管理员可见的提示*/
+.usersign{background:url(sigline.gif) no-repeat 3px 0px;color:#999999;padding:10px 0px 3px 5px;max-height:60px;maxHeightIE:60px;}  /*用户签名*/
+
+.titleright{height:35px;_height:25px;_padding-top:10px;padding-left:8px;line-height:35px;_line-height:25px; border-bottom:#ccc dashed 1px;color:#888;}
+.titleright a{color:#888;}
+
+.subjecttit{font-size:14px;line-height:35px;color:#000;}
+.subjecttit font{line-height:1.5em;}
+.tzsubject{font-size:16px;border-bottom:1px solid #efefef;font-weight:bold;padding-left:20px;color:#000;line-height:35px;}
+.tzsubject span{font-size:12px;color:#555;font-weight:normal}
+.clubcontent{ padding:10px; word-wrap:break-word;word-break:break-all;overflow:hidden;font-size:14px;color:#555555;height:auto;min-height:50px;line-height:2em; line-height:24px; font-size:14px; font-weight:normal;cursor:default}
+.clubcontent img{max-width:600px;border:1px solid #f1f1f1;padding:2px}
+.subjecttit table{margin-top:10px;margin-left:20px;}
+.subjecttit table td{font-size:14px;line-height:25px;color:#555555;}
+.subjecttit a{font-size:14px;color:#555555;}
+.subjecttit p{text-index:2em;color:#555555;}
+.userface img{border:1px solid #f1f1f1;max-width:160px;max-height:150px;padding:1px;margin:5px;}
+.replyemot img{width:52px;height:52px;cursor:pointer; float:left; padding:0px 3px;}
+.replyemot img:hover{}
+
+
+/*帖子投票*/
+.votetable .vbg{height:30px;background:url(votebg.gif) repeat-x left -35px;width:470px; border:#ccc 1px solid; border-top:none; border-bottom:none; border-bottom:none;}
+
+.bui0{margin:32px 0 0 -1px;}
+.bui1{margin:-1px 0 0 -1px;}
+.bui{min-height:100px;position:absolute;padding:0px 0 15px 0px;width:430px;border:1px solid #E6E7E1;background:#FFF;box-shadow:2px 2px 3px #CCC;-webkit-box-shadow:2px 2px 3px #CCC;-moz-box-shadow:2px 2px 3px #CCC;}
+.bui .l{float:left;padding:0px;margin:0px;width:140px;}
+.bui .r{float:right;width:280px;}
+.bui .r li{float:left;width:138px;}
+.bui .r li span{font-weight:bold}
+.bui .r li.line{width:275px}
+#votebtn{ line-height:25px; padding:0px 8px;}
+
+/*帖子广告*/
+.topad{background:url(bottomad.gif) no-repeat 0px;padding:3px 0px 3px 25px}
+.bottomad{background:url(bottomad.gif) no-repeat 5px;padding:3px 0px 3px 25px}
+.topad a,.bottomad a{font-size:12px;color:#006699}
+.rightAd{clear:right;float:right;padding:10px;background:#FFF;color:#999;line-height:130%;}
+
+
+
+
+.clubqm{margin-top:10px;border-toP:#f1f1f1 1px solid;line-height:28px;text-align:left; width:145px;}
+#submit{text-align:center;}
+
+.replytopic{ height:30px; line-height:30px; background:#FFFBCC; color:#FF6600; padding-left:15px;}
+
+.hftitle{border-top:#f1f1f1 1px solid;padding-top:8px;border-bottom:#f1f1f1 1px solid;padding-bottom:8px;}
+.backlist{width:968px;margin:0 auto;margin-top:8px;background:#E8F3FD;border:#C6D9E7 1px solid; border-bottom:none; color:#ccc;padding-left:10px;height:35px;line-height:35px;}
+.backlist a{color:#006699; padding:0px 8px;}
+
+.notice{width:420px;float:right;line-height:40px;}
+
+
+.blank10{ height:10px; clear:both; overflow:hidden;}
+
+.content-inner2{}
+.content-inner2 span{background:url(catname_bg.gif) repeat-x; height:33px; line-height:33px; text-align:center; display:block;border:#C6D9E7 1px solid; border-left:none; border-right:none; font-weight:bold; color:#555;}
+.content-inner2 ul{ padding:10px;}
+.content-inner2 li{ height:24px; line-height:24px; border-bottom:#d8d8d8 1px dashed; background:url(tran.gif) no-repeat 0px 11px; padding-left:10px;}
+.clubmainbox{width:978px;margin:0px auto;border:#C6D9E7 1px solid;}
+
+.clubbox{width:978px;margin:0px auto;margin-top:10px; border:#C6D9E7 1px solid; border-top:none;}
+.guestlistbox{width:980px;margin:0px auto; background:#fff;}
+.guestlistbox .blist{border:#C6D9E7 1px solid; border-top:none;}
+.guestlistbox .guest_box{border:#C6D9E7 1px solid; height:300px; padding:10px;}
+.guestlistbox .blist .boardname{background:url(catname_bg.gif); height:34px; line-height:34px;padding-left:18px;border:#C6D9E7 1px solid; border-left:none; border-right:none;}
+.guestlistbox .blist .boardname a{ font-size:12px; color:#1F7ABC;}
+.guestlistbox .blist .boardname span.closeicon{ padding-top:9px;}
+.pd20{padding-bottom:10px;}
+
+.clubcate{background:url(catname_bg.gif); border:#C6D9E7 1px solid; border-left:none; border-right:none; height:34px; line-height:34px; font-weight:bold; font-size:14px; padding-left:18px;}
+
+.clubcatebox{width:978px; margin:0px auto;height:45px; line-height:45px; background:#fff;border:#C6D9E7 1px solid;}
+.xintei{width:410px; float:right;text-align:right;padding:0px 10px;}
+.xintei a{padding:5px;height:25px;}
+.xintei a:hover{background:#E5EDF2;text-decoration:none;color:#666;}
+.tiezhi{width:500px; padding:0px 10px;}
+.tiezhi li{width:240px;float:left;list-style-type:none}
+
+
+.banguirules{padding:20px;border-bottom:#efefef 0px solid;color:#555; font-size:14px;line-height:26px;background:#FCFEFF url(png-0003.png) no-repeat 5px 8px; padding-left:80px;}
+.banguirules span{color:#ff6600;font-weight:bold}
+.rules{font-weight:bold;line-height:28px;}
+.BoardRules{line-height:24px;}
+.banguirules .currboardname{font-size:14px;font-weight:bold; margin-right:20px;}
+.banguirules .gly{color:#555;}
+.banguirules .gly a{color:#006699;}
+
+
+.clublistt{width:978px; margin:0px auto;border:#C6D9E7 1px solid; height:45px; line-height:45px; background:#fff; overflow:hidden;}
+.clublistt .clublistt_left{width:300px; float:left; padding:2px 5px;}
+.clublistt .clublistt_right{width:650px; float:right;}
+
+.clublistf{width:978px; margin:0px auto;border:#C6D9E7 1px solid; height:45px; line-height:45px; background:#fff; overflow:hidden; padding:8px;}
+.clublistf span{ font-size:12px; color:#333; padding-left:8px;} 
+
+
+.photored{background:url(forum_new.gif) no-repeat;width:31px;height:29px;margin:0 auto}
+.photogray{background:url(forum.gif) no-repeat;width:31px;height:29px;margin:0 auto}
+
+.clublist{width:980px;margin:0px auto;padding:0px;}
+.clublist table.glist{border:1px solid #f1f1f1;margin:0 auto}
+.newlink .intro{height:23px;overflow:hidden;line-height:23px;color:#999;}
+.newlink span{line-height:24px;color:#999}
+.newlink a{color:#3767AF;font-weight:bold;font-family:"宋体"}
+
+.mainleft .boardname{ border:#C6D9E7 1px solid;padding-left:22px;height:34px;background:url(catname_bg.gif)}
+.mainleft1 .boardname{padding-left:22px;height:34px;background:url(catname_bg.gif);border:#C6D9E7 1px solid; border-left:none; border-right:none;}
+
+.mainleft .blist .boardname{padding-left:22px;height:34px;background:url(catname_bg.gif);border:#C6D9E7 1px solid;}
+.mainleft .blist .boardname a{font-weight:bold;color:#000;}
+.mainleft1 .boardname a{ font-weight:bold; color:#000;}
+
+
+.newsub{text-align:left;line-height:24px;width:260px;}
+.newsub a{color:#999;}
+.newsub span{color:#000;}
+
+
+.clublink{width:978px;margin:0px auto;background:#fff; border:#C6D9E7 1px solid;}
+.clublinktit{font-weight:bold;color:#1F7ABC;background:url(catname_bg.gif);height:34px;line-height:34px;padding-left:20px;border-bottom:#C6D9E7 1px solid;}
+.links-image{ padding:10px;}
+.links-image a{ padding:0px 5px; text-align:center;}
+.links-image img{ border:#d8d8d8 1px solid; padding:2px;}
+.links-text{ padding:10px; border-top:#d8d8d8 1px dashed;}
+.links-text a{ padding:0px 5px;}
+
+
+.clublinktit span{color:#006699;padding-left:35px;}
+.clublinktit span.more a{color:#006699;font-weight:normal;}
+.clublinktit span.total{text-align:right;font-weight:normal;color:#333;}
+
+
+.online-sign{padding-bottom:10px;}
+.online-sign ul{padding:10px;min-height:30px; }
+.online-signlist{ }
+.online-signlist li{width:120px;float:left;line-height:25px;overflow:hidden}
+
+.copyinfo{width:980px;margin:0px auto;color:#888; font-family:"Times New Roman", Times, serif}
+.power{line-height:24px;}
+.power a{color:#006699;}
+
+/*论坛搜索*/
+.sform{padding:20px;}
+.sform span{color:#999}
+
+/*写留言*/
+.clubfor{min-height:300px;width:980px;margin:0px auto; background:#fff url(bbs_top.png) no-repeat; height:100%; overflow:hidden;}
+.clubfont{margin-left:30px;}
+.clubfont .lefttd{text-align:center;font-weight:bold;font-size:14px}
+
+/*没有权限时的提示*/
+.errtips{margin:0px auto;background:url(error.png)  no-repeat 60px 40px; background-color:#ffffff;min-height:121px;width:500px;margin-top:80px;margin-bottom:120px;}
+.tishixx{text-align:left;word-break : break-all;width:360px;padding-left:128px;padding-top:20px;line-height:30px;font-size:14px;color:#000; font-weight:bold;}
+.tishi{font-size:14px;font-weight:bold}
+.tishixx span{color:red}
+.closebut{height:50px;line-height:50px; margin-left:130px;}
+.closebut a{border:1px solid #fff;padding:3px;margin:3px;width:100px;line-height:30px;height:30px; color:#069;}
+
+<!---帖子列表-->
+.glist{width:960px;margin:0px auto; border:green 1px solid;}
+.topiclist tr:hover{background:#F9FAFA;}
+
+.category{background:#F3F3F3;height:32px;line-height:32px;}
+.category td{border-bottom:1px solid #E8E8E8;}
+.category li{list-style-type:none}
+.topiclist td{height:45px;text-align:left; border-bottom:#E1E5E8 1px solid;}
+.topiclist .topictitle{line-height:26px;}
+.topiclist .gray{color:#999;}
+.topiclist .gray span{padding-left:20px;}
+.topiclist .gray a.author{color:#999;font-size:12px}
+.topiclist .scategory{padding-right:6px;color:#006666}
+
+.topiclist .topictitle1 a{color:#666; font-size:16px;font-family:"微软雅黑"}
+.topiclist .topictitle a{color:#666; font-size:14px;font-family:"微软雅黑"}
+.author{color:#666;line-height:1.4;}
+.time{font-size:10px;color:#999999;}
+.menurel{position:relative;}
+.submenu{border:#DDD 1px solid;text-align:left;position:absolute;top:25px;z-index:1300;background:#fff;display:none;left:-10px;width:79px; padding:2px;}
+.submenu dl{ text-align:center;line-height:28px; border-bottom:#E5EDF2 1px solid;}
+.submenu dl a{ color:#333;}
+.submenu dl:hover{color:#336699;background:#E5EDF2; display:block;text-decoration:none;}
+.noli{top:26px;left:0px;}
+.noli dl{background:none;height:25px;line-height:25px;_padding:5px 0px 0px 5px;}
+#postlist{top:10px;*top:26px;}
+
+
+
+/*列表页版面分类*/
+.boardcategory{width:978px;margin:0px auto;background:#fff; border:1px solid #C6D9E7; padding:5px 0px;height:100%; overflow:hidden;}
+.boardcategory a,.boardcategory strong{background:url(catname_bg.gif) repeat-x;float:left; padding:0px 10px; margin:0px 6px;height:25px; line-height:25px; border:1px solid #C6D9E7;color:#666;text-decoration:none;white-space:nowrap;}
+.boardcategory a:hover{border-color:#F90;}
+.boardcategory .otp{border-color:#F90;color:#F90;}
+
+.banmian{padding-left:4px}
+.banmian a{color:#000;font-weight:normal;}
+.banmian li{float:left;margin:2px;}
+.banmian li a{color:#666; padding:0px 5px;}
+.banmian li.current a{color:#336699;}
+
+.fenye{clear:both;line-height:28px;}
+.fenye a{text-decoration:none;}
+.fenye .prev,#fenye .next{width:52px; text-align:center; }
+.fenye a.curr{padding:0px 10px;background:url(votebg.gif) repeat-x left bottom; color:brown; font-weight:bold; text-align:center;}
+.fenye a.curr:visited {color:brown;}
+.fenye a{margin:5px 4px 0 0; color:#000; background:url(votebg.gif) repeat-x left bottom; display:inline-table; border:1px solid #CCC;  float:left; text-align:center;height:28px;line-height:28px;}
+.fenye a.num{padding:0px 6px;}
+.fenye a:visited{color:#666;} 
+.fenye a:hover{ background:url(votebg.gif) repeat-x left top; float:left; text-decoration:none; color:#069;}
+.fenye span{display:block;margin:10px}
+
+/*代码块样式*/
+.blockcode li{margin-left:2em;}
+.blockcode{padding:10px 0 5px 10px;width:550px;border:1px solid #CCC;background:#F7F7F7 url(codebg.gif) repeat-y 0 0;overflow:hidden;}
+.blockcode ol{margin:0 0 0 10px;padding:0;}
+.blockcode ol li{padding-left:10px;list-style-type:decimal-leading-zero;font-family:Monaco,Consolas,"Lucida Console","Courier New",serif;font-size:12px;line-height:1.8em;}
+.blockcode ol li:hover{background:#FFF;color:#369;}
+* html .pl .blockcode ol li{font-family:"Courier New",serif;}
+.blockcode em{margin-left:43px;color:#369 !important;font-size:12px;cursor:pointer;}
+
+.btn{border:#0192BE 1px solid;margin-right:1em;color:#fff;background:#2EB8E2;}
+.btn{cursor:pointer;padding:.1em 1em;*padding:0 1em;font-size:9pt; height:22px; line-height:22px;overflow:visible;}
+
+
+.cmttextarea{color:#999;width:98%;height:22px;line-height:22px;border:1px solid #B7D2E2;background:#FFF;overflow:auto; }
+.clubmainbox a{text-decoration: none;}   /* 链接无下划线,有为underline */ 
+.clubmainbox{color:#777}
+.clubmainbox .tsa{background:#E8F3FD; height:33px; line-height:33px; font-weight:bold;font-size:14px; color:#336699; padding-left:18px;}
+
+
+.showfresh{}
+.showfresh span{background:url(catname_bg.gif) repeat-x; height:33px; line-height:33px; text-align:center; display:block;border:#C6D9E7 1px solid; border-left:none; border-right:none; font-weight:bold; color:#555; }
+.showfresh .focus{ padding:5px;}
+
+.zzblog{background:#fff;float:left; width:218px; padding:5px}
+.zzblog ul{margin:0px; float:left; padding:0px; width:218px}
+.zzblog li{list-style-type:none; float:left; width:218px; padding-top:5px; padding-bottom:5px}
+.zzblog span{float:left; width:48px; text-align:center; line-height:22px; margin:0px; padding-top:0px; padding-right:3px; padding-bottom:0px; padding-left:0px}
+.zzblog img{padding:2px; border:1px solid #e7e7e7; margin:0px; width:45px; height:45px;}
+.zzblog span a{color:#f60; text-decoration:none}
+.zzblog span a:hover{text-decoration:underline}
+.zzlist{text-align:left;float:left; width:167px; background-image:url(wbbg.gif); background-position:0px 0px;word-break:break-all;}
+.zzlist img{width:auto;height:auto;border:none;cursor:pointer}
+.zzjh{float:left; width:157px; color:#f60; text-align:right; padding-right:10px; margin:0px; padding-top:5px}
+.zzjh a{color:#0082cb; text-decoration:none}
+.zzjh a:hover{text-decoration:underline}
+.zzblog p{background-image:url(wbbg.gif); background-repeat:no-repeat; background-position:-167px bottom; float:left; width:140px; padding-top:6px; padding-bottom:6px; padding-right:13px; padding-left:14px; margin:0px; color:#727272}
+.fypage{margin:0px; float:left; width:100px; background-position:left top; background-repeat:repeat-x; padding-top:5px; padding-right:10px; padding-bottom:5px; padding-left:118px; }
+.fypage em{visibility:hidden}
+a.p_link{background-image:url(pagebg.gif); background-position:0px -5px; height:21px; width:22px; float:right; text-decoration:none; margin-right:1px; display:block; font-size:1px}
+a.p_link:hover{background-image:url(pagebg.gif); background-position:0px -26px; height:21px; width:22px; float:right; text-decoration:none; margin-right:1px}
+a.n_link{background-image:url(pagebg.gif); background-position:-22px -5px; height:21px; width:22px; float:right; text-decoration:none; margin-right:1px; font-size:1px}
+a.n_link:hover{background-image:url(pagebg.gif); background-position:-22px -26px; height:21px; width:22px; float:right; text-decoration:none; margin-right:1px}
+
+/*帖子点评*/
+.threadcommnets{color:#555;font-size:12px}
+.threadcommnets .psta{width:30px;float:left}
+.threadcommnets h3{font-weight:bold;width:200px;background:#FFF4DD url(/club/images/arw.gif) no-repeat 100% 50%;color:#FF6600;font-size:12px;padding-left:10px;height:26px;line-height:26px;}
+.threadcommnets h3 span{font-weight:normal;color:#666666}
+.threadcommnets img{width:24px;height:24px;margin-right:4px}
+.threadcommnets a{color:#003366;font:12px/1.75 "宋体", arial, sans-serif,'DejaVu Sans','Lucida Grande',Tahoma,'Hiragino Sans GB',STHeiti,SimSun,sans-serif;}
+.threadcommnets .pstl{line-height:24px;margin:14px 70px 2px 15px;}
+.threadcommnets .line{border-bottom:1px dashed #ccc;}
+.threadcommnets .xg1{color:#999}
+.threadcommnets .ww{color:#ff3300}
+.threadcommnets i{font-style:normal;color:#ff3300;font-weight:normal}
+.threadcommnets .red{color:#ff3300}
+.threadcommnets .currstar{color:#FFCC66;font-size:14px}
+.threadcommnets .star{color:#999;font-size:14px}
+.cmtpage{margin-bottom:10px;margin-top:10px;}
+.cmtpage a.curr{background:#f1f1f1;font-weight:bold}
+.cmtpage a{display:block;float:left;text-decoration:none;border:1px solid #cccccc;padding:2px 7px 2px 7px;margin:3px;}
+.cmtpage a:hover{border:1px solid #ff6600;}
+
+/*帖子内容页绑定模型*/
+.modeltable{width:95%;margin-bottom:20px}
+.modeltable tr td{padding:2px;height:20px;font-size:12px;}
+.modeltable tr{background-color:expression(this.sourceIndex%2 ? '#F3F9FB':'#ffffff');}
+textarea, select{ padding:2px; border:1px solid; border-color:#666 #ccc #ccc #666; background:#F9F9F9; color:#555; resize: none; }
+.textbox{ padding:3px; border:1px solid; border-color:#666 #ccc #ccc #666; background:#ffffff; color:#333; resize: none;}
+.textbox:hover, .textbox:focus, textarea:hover, textarea:focus{border-color:#09C; background:#F5F9FD; }
+.postmodeltable td{color:#666;height:30px;}
+
+.clubatten{text-align:center;margin:5px;}
+.hidemenu{color:#999;}
+.hidemenu a{color:#999;}

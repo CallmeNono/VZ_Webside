@@ -1,0 +1,124 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> {$GetSiteName}-搜索-{@search.seotitle}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<meta name="keywords" content="{$GetClass_Meta_KeyWord}" />
+<meta name="description" content="{$GetClass_Meta_Description}" />
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+
+</head>
+<body>
+{LB_首页头部}
+<!--频道首页主体begin-->
+<div class="navigation">您当前位置：<a href="{$GetSiteUrl}">{$GetSiteName}</a> >> <a href="{$GetInstallDir}Item/list.asp?id=924">二手房源</a> >> 房源列表</div>
+<div class="clear blank10"></div>
+
+<!--begin-->
+<div class="esfsxmain01">
+      <div class="title"><h2>搜房</h2></div>
+      <div class="esfsxmain01box">{@search.fieldmenu}</div> 
+</div>
+<div class="blank10 clear"></div>
+
+<div class="banner965">{=GetAdvertise(6)}</div>
+<div class="clear blank10"></div>
+<div class="esfsxmain02">
+    <div class="left">
+	      <!--筛选切换 start-->
+			   <div class="tabtit">
+					 <div class="fcsearch_tabs">
+						  <ul>{@search.topmenu}</ul>
+					  </div>
+					    <div class="clear"></div>
+					    <div class="esfresult">
+							<div class="totalnum"> 共有 <span>{@search.totalput}</span> 套符合要求的房子 </div>
+							<div class="sortby">请选择排序方式：
+								  <select name="orderby" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: middle; PADDING-TOP: 0px" onchange=javascript:if(this.value)window.location.href=this.value> 
+									{@search.orderoptionlist}
+								</select>
+								{@search.orderliststr}
+							</div>
+					</div>
+				  </div>
+				  <!--筛选切换 end-->
+						<div class="blank10 clear"></div>
+			       <!--筛选列表 start-->
+					<div class="listing">
+						  <ul>
+						<!--循环开始--->
+						  {@loop.begin}
+							 <div class="bkyellow" >
+								 <li>
+								<div class="pic"><a href="{@item.linkurl}" target="_blank"><img alt="{@item.title}" src="{@item.photourl}" width="106" height="96"></a></div>        
+								 <dl class="house">             
+									  <dt>
+										   <dd class="housetit">
+												<p class="housetitle"><a title="{@item.title}" href="{@item.linkurl}" target=_blank>{@item.title}</a> </p>
+												<p class="black"><a href="{@item.linkurl}" target="_blank">{@item.KS_xiaoqu}{@item.KS_dizhi}</a></p>
+												<p class="black"><a href="{@item.linkurl}" target="_blank">户型：{@item.KS_hx}，楼层：{@item.KS_lc}/{@item.KS_lg}层</a></p>
+												 <p class="gray9"><a href='{@item.linkurl}' title="访问[{@item.KS_name}]的网上店铺，查看更多房源" target='_blank'>{@item.KS_name}</a>
+										<span class="marr7">{@item.KS_tel}</span></p>
+												 
+										</dd>    
+											<dd class="area"><span>{@item.KS_jzmj}</span>平米</dd>
+											<dd class="money"><span>{@item.KS_jiage}</span>万元</dd>        
+										  </dt>
+									   
+									</dl>
+										  </li>
+						
+									</div>
+									
+									 {@loop.end}
+								<div class="multipage"> {@search.showpage} </div>
+							  </ul>
+					</div>
+		  <!--筛选列表end -->
+		  								<div class="clear blank10"></div>
+
+	
+	</div>
+	<div class="right">
+	        <div class="right01">
+			     <div class="title">热门出售房源</div>
+				 <div class="right01box">
+				    <ul>
+					   {LB_热门出售信息}
+					</ul>
+				 </div>
+			</div>
+			<div class="clear blank10"></div>
+
+	 <div class="right01">
+			     <div class="title">热门出租房源</div>
+				 <div class="right01box">
+				    <ul>
+					   {LB_热门出租信息}
+					</ul>
+				 </div>
+			</div>
+	 </div>
+</div>
+
+<!--end-->
+<div class="blank10 clear"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+
+</div>
+</body>
+</html>

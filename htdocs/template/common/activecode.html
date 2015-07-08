@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$GetSiteName}-{$ActiveTitle}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/lhgdialog.js"></script>
+<script language = "JavaScript">
+	function CheckForm(){
+		if ($("#UserName").val()==""){
+		 $.dialog.alert("请输入用户名！",function(){ $("#UserName").focus();});
+		 return false;
+	    }
+	   if ($("#Email").val()==""){
+		 $.dialog.alert("请输入邮箱！",function(){	 $("#Email").focus();});
+		 return false;
+		}
+	    return true;
+ }
+</script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+
+</head>
+<body>
+<!-- head begin -->
+<div class="user_topa">
+    <div class="usertopa">
+	     <div class="logo"><a href="{$GetSiteUrl}" target="_blank"><img alt="kesioncms" src="{$GetInstallDir}images/logo.png" /></a></div>
+		 <div class="topa_r">
+				    <ul>
+				   <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   </ul>
+		 </div>
+	</div>
+</div>
+
+<div class="blank10 clear"></div>
+<!-- head end -->
+<div class="user_topc">
+   <h2>重发激活码</h2>
+   <span></span>
+   <div class="topc_r">欢迎来到{$GetSiteTitle}!</div>
+</div>
+<div class="blank10 clear"></div>
+<!-- head end -->
+
+<div class="user_topG">
+   {$GetActiveCodeForm}
+</div>
+
+		<div class="clear"></div>	
+	 <div class="foot"> {LB_用户中心底部}</div>
+</body>
+</html>

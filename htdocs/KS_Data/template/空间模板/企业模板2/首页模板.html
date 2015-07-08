@@ -1,0 +1,78 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$ShowBlogName}-{$GetSiteTitle}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<link href="{$GetInstallDir}space/skin/company02/style.css" rel="stylesheet" type="text/css">
+<script src="{$GetInstallDir}ks_inc/kesion.box.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.page.js" language="javascript"></script>
+</head>
+<body>
+<div class="header">
+      <div class="head">
+	       <div class="left">{$ShowLogo}</div>
+		   <div class="right">今天是：{$JS_Time2}</div>
+	  </div>
+</div>
+<div class="clear"></div>
+
+<div class="banner"><h1>{$ShowBlogName}</h1></div>
+<div class="clear"></div>
+<div class="menu">
+   <ul>
+     {$ShowNavigation}
+   </ul>
+</div>
+
+<div class="blank10 clear"></div>
+
+<div class="main">
+    <div class="left">
+	    <div class="left01">
+		    <div class="title">企业登录管理</div>
+			<div class="left01box">
+			   <ul>
+			     {$ShowUserLogin}
+			   </ul>
+			</div>
+		</div>
+		<div class="blank10 clear"></div>
+	   <div class="left01">
+		    <div class="title">企业新闻</div>
+			<div class="left02box">
+			   <ul>
+			     {$ShowNews}
+			   </ul>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+	     <div class="note">公告：{$ShowAnnounce}</div>
+		 <div class="blank10 clear"></div>
+         <div class="right01">
+		      <div class="title"><span><a href="?{$ShowUserID}/intro">更多>></a></span>企业简介</div>
+			  <div class="right01box">
+			       {$ShowShortIntro} 
+			  </div>
+		 </div>
+		 
+		  <div class="blank10 clear"></div>
+         <div class="right01">
+		      <div class="title"><span><a href="?{$ShowUserID}/product">详情>></a></span>最新产品</div>
+			  <div class="right02box">
+			       {$ShowProduct}
+			  </div>
+		 </div>
+	</div>
+</div>
+<hr size="1" color="#f1f1f1" width="960" align="center" />
+<div class="clear"></div>
+
+<div class="foot">Powered by Kesion.Com &copy; 2006-2012 </div>
+
+</body>
+</html>

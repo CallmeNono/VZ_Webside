@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$ShowBlogName}-{$GetSiteTitle}</title>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk" />
+<meta name="robots" content="all" />
+<meta http-equiv="x-ua-compatible" content="ie=emulateie7"/>
+<script src="{$GetInstallDir}ks_inc/jquery.js" language="javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.js" language="javascript"></script>
+<script src="{$GetInstallDir}space/js/ks.space.page.js" language="javascript"></script>
+<link href="{$GetInstallDir}space/skin/blog2/style.css" type=text/css rel=stylesheet>
+</head>
+<body>
+
+<div class="header">
+  <div class="top">
+   <div class="left">{$GetTopUserLogin}</div>
+   <div class="right"><a href="/?do=reg">注册</a>  |  <a href="/user/Login/">登录</a>   |   {$JS_HomePage}   |  {$JS_Collection}</div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+    <div class="banner">
+		<h1>{$ShowBlogName}</h1>
+		<h2>{$ShowBlogDescript}</h2>
+		<div class="clear"></div>
+		 <div class="menu">
+			  <ul>
+			   {$ShowNavigation}
+			  </ul>
+		</div>
+	</div>
+	
+	<div class="clear"></div>
+   <div class="mainbody">
+      <div class="mainbodyl">
+	    <div class="mainbodyl1">
+		   <div class="title">个人名片</div>
+		   <div class="box">
+			  <ul>
+			    {$ShowUserInfo}
+				</ul>
+				<ul class="ul_brief">
+					<li>姓名：{$GetRealName}</li>
+					<li>性别：{$GetSex}</li>
+					<li>地区：{$GetAddress}</li>
+					<li>QQ号：{$GetQQ}</li>
+					<li>Email：{$GetEmail}</li>
+					<li>个人签名： {$GetSign}</li>
+				</ul>
+		   </div>
+		</div>
+		
+		<div class="clear"></div>		
+		 
+		 <div class="mainbodyl2">
+		   <div class="title">最近谁来看过我</div>
+		   <div class="friends">
+		     <ul>
+			  <!--start-->
+			  {$ShowVisitor}
+			  <!--end-->
+			  </ul>
+		   </div>
+		</div>
+		
+		
+		<div class="clear"></div>		
+
+		  <div class="mainbodyl2">
+		   <div class="title">博客统计</div>
+		   <div class="ul_stats">
+				<ul>
+					{$ShowBlogTotal}
+				</ul>		  
+			 </div>
+		</div>
+		
+	  </div>
+	  
+	  
+	  <!--中间-->
+      <div class="mainbodym">
+	     <div class="wzfl">
+		     
+				<span class="classcolor">
+					{$ShowNewFresh}
+			</span>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodymbox">
+		    <div class="title">最新日志</div>
+			<div class="dzwz">
+			  <ul class="ul_recommend">
+				{$ShowNewLog}
+				</ul>
+			</div>
+		 </div>
+	  
+	  <div class="clear"></div>
+	  
+	  	<div class="mainbodymbox">
+		    <div class="title">最新信息集</div>
+			 <div class="artlist">
+				{$ShowNewInfo}
+			 </div>
+			</div>
+			
+		<div class="mainbodymbox">
+		    <div class="title">最新相册集</div>
+			 <div class="xiangce">
+				{$ShowNewAlbum}
+			 </div>
+			</div>
+	 
+	  <div class="clear"></div>
+
+		<div class="mainbodymbox">
+		    <div class="title">最新留言</div>
+			 <div class="artlist">
+				{$ShowMessage}
+			 </div>
+			</div>
+			
+		 </div>
+		 
+	  
+	  <!--右边-->
+      <div class="mainbodyr">
+		 <div class="mainbodyr1">
+		    <div class="title">空间公告</div>
+			<div class="note">
+				{$ShowAnnounce}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title"><span> <a href="../space/?{$ShowUserID}/club">更多>></a></span>最新话题</div>
+			<div class="mainbodyr2box">
+				{$ShowClubTopic}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title">高级日历</div>
+			<div class="rili">
+				{$ShowCalendar}
+			</div>
+		 </div>
+
+	  <div class="clear"></div>
+	     
+		 <div class="mainbodyr2">
+		    <div class="title">最新评论</div>
+			<div class="mainbodyr2box">
+				{$ShowComment}
+			</div>
+		 </div>
+		 
+		 <div class="clear"></div>
+		 
+		 <div class="mainbodyr2">
+		    <div class="title">RSS订阅</div>
+			<div class="rili">
+				{$ShowXML}
+			</div>
+		 </div>
+
+	  
+
+	  </div>
+   </div>
+
+	<div class="clear"></div>
+	
+	<div class="copyright"> Powered by Kesion.Com &copy; 2006-2012</div>
+
+</body>
+</html>

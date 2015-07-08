@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$GetSiteName}-{$ShowCompanyName}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<meta name="keywords" content="{$GetClass_Meta_KeyWord}" />
+<meta name="description" content="{$GetClass_Meta_Description}" />
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+
+</head>
+<body>
+{LB_首页头部}
+<div class="banner965">{=GetAdvertise(6)}</div>
+<div class="blank10 clear"></div>
+<div class="navigation">您当前位置：<a href="{$GetSiteUrl}">{$GetSiteName}</a>  >> <a href="{$GetInstallDir}company">企业大全</a> >> {$ShowCompanyName}</div>
+<div class="blank10 clear"></div>
+
+<div class="companyshow">
+     <div class="left">
+	      <div class="left01">
+		      <div class="title">企业基本信息</div>
+			  <div class="left01box">
+			         <ul>
+					<li>公司名称：{$ShowCompanyName}</li>
+					<li>公司行业：{$ShowIndustry}</li>
+					<li>公司规模：{$ShowCompanyScale}</li>
+					<li>所在地区：{$ShowProvince}{$ShowCity}</li>
+					<li>公司地址：{$ShowAddress}</li>
+					<li>邮政编码：{$ShowZipCode}</li>
+					<li>成立日期：{$ShowFoundation}</li>
+				  </ul>
+			  </div>
+		  </div>
+		  <div class="clear blank10"></div>
+	      <div class="left01">
+		      <div class="title">企业名片</div>
+			  <div class="left01box">
+			        <ul>
+					<li>联 系 人：{$ShowContactMan}</li>
+					<li>电　　话：{$ShowTelphone}</li>
+					<li>传　　真：{$ShowFax}</li>
+					<li>联 系 QQ：{$ShowQQ}</li>
+					<li>地　　址：{$ShowAddress}</li>
+					<li>邮　　编：{$ShowZipCode}</li>
+					<li>公司主页：{$ShowWebSite}</li>
+				   </ul>
+			  </div>
+		  </div>
+	 
+	 </div>
+	 <div class="right">
+	       <div class="right01">
+		        <div class="title"><h2>企业简介</h2></div>
+				<div class="right01box">
+				      {$ShowCompanyIntro}
+				</div>
+		   </div>
+		   
+		   <div class="clear blank10"></div>
+		   
+		    <div class="right01">
+		        <div class="title"><h2>公司信息列表</h2></div>
+				<div class="right01box">
+				       {$ShowCompanySupply}
+				</div>
+		   </div>
+		   
+	 
+	 
+	 </div>
+</div>
+
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+
+</div>
+</body>
+</html>

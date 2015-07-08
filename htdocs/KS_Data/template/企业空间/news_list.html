@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$GetSiteName}-企业新闻</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<meta name="keywords" content="{$GetClass_Meta_KeyWord}" />
+<meta name="description" content="{$GetClass_Meta_Description}" />
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+
+</head>
+<body>
+{LB_首页头部}
+<div class="banner965">{=GetAdvertise(6)}</div>
+<div class="blank10 clear"></div>
+<div class="navigation">您当前位置：<a href="{$GetSiteUrl}">{$GetSiteName}</a> >> <a href="{$GetInstallDir}company">企业大全</a> >> 企业新闻列表</div>
+<div class="blank10 clear"></div>
+<div class="company_list">
+   <div class="left">
+       <div class="left01">
+	         <div class="title"><h2>企业新闻列表</h2></div>
+			 <div class="newslist">
+			     <h1>
+					   <div style="width:45%; float:left;">新闻标题</div>
+					  <div style="width:39%; float:left;">公司名称</div>
+					  <div style="width:15%; float:right;">更新日期</div>
+				  </h1>
+				  <div class="clear blank10"></div>
+				  {$ShowNewsList}
+			 </div>
+	   </div>
+              
+   
+   </div>
+   <div class="right">
+       
+	    <div class="right01">
+		     <a href="#">修改基本信息</a>
+			 <a href="#">发布供应信息</a>
+		 </div>
+		 <div class="clear blank10"></div>
+		 <div class="right02">
+		    <a href="@"><img src="{$GetInstallDir}images/gbtn_join2.gif" /></a>
+		 </div>
+		<div class="clear blank10"></div>
+		 <div class="right02">
+		    <a href="@"><img src="{$GetInstallDir}images/gbtn_free.gif" /></a>
+		 </div>
+	   <div class="clear blank10"></div>
+	     <div class="right03">
+		     <div class="title">最新博文</div>
+			 <div class="right03box">
+			     <ul>
+				   {LB_最新博文}
+				 </ul>
+			 </div>
+		 </div>
+		 
+	      <div class="blank10 clear"></div>
+				
+				
+	     <div class="right03">
+		     <div class="title">最新加入企业</div>
+			 <div class="right03box">
+			     <ul>
+				    {LB_最新加入企业}
+				 </ul>
+			 </div>
+		 </div>
+   
+   
+   </div>
+</div>
+
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+
+</div>
+</body>
+</html>

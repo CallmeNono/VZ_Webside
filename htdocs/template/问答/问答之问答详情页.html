@@ -1,0 +1,296 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{@ask.sitetitle}-{@topic.title}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta content="{$GetClass_Meta_KeyWord}" name=keywords>
+<meta content="{$GetClass_Meta_Description}" name=description>
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+<script src='{$GetInstallDir}ks_inc/kesion.box.js' language="JavaScript"></script>
+<script language="javascript">
+	function ShowLogin(){
+	    new KesionPopup().popupIframe("会员登录","../user/userlogin.asp?Action=Poplogin",387,184,'no')
+	}
+	function handle(action,topicid,title){
+	  onscrolls=false;
+	  popTopHeight=100;
+	  new KesionPopup().popupIframe(title,"handle.asp?Action="+action+"&topicid="+topicid,600,350,'auto')
+	}
+	function checkform(){
+	 if (Editor.getEditorContents()==""){ 
+		 alert('请输入回答内容!');
+	     return false;
+		 }
+      {ifl:KS.ASetting(8)="1"}
+	  if (document.answerform.Verifycode.value==""){
+		 alert('请输入验证码!');
+		 document.answerform.Verifycode.focus();
+	     return false;
+		 }
+	  {/ifl}		 
+    }
+	$(document).ready(function()
+	{
+	     $("#answerbutton").click(function(){
+			  return checkform()}
+			 )
+	});
+   function InsertFileFromUp(FileList,fileSize,maxId,title)
+		  {
+		    var files=FileList.split('/');
+			var file=files[files.length-1];
+			var fileext = FileList.substring(FileList.lastIndexOf(".") + 1, FileList.length).toLowerCase();
+			if (fileext=="gif" || fileext=="jpg" || fileext=="jpeg" || fileext=="bmp" || fileext=="png")
+			  {
+				 insertHTMLToEditor('[img]'+FileList+'[/img]');	
+			  }else{
+			    var str="["+"UploadFiles"+"]"+maxId+","+fileSize+","+fileext+","+title+"[/UploadFiles]";
+				 insertHTMLToEditor(str);	
+			 }
+		}
+		function insertHTMLToEditor(codeStr) { 
+		  Editor.insertText(Editor.bbcode2html(codeStr));
+		} 	
+</script>
+</head>
+<body>
+{LB_首页头部}
+<div class="navigation">
+      <span> 
+		       <script>
+					  check=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }
+					  }
+					  goask=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }else{
+						window.open('a.asp?q='+document.getElementById('KeyWord').value);
+						return false;
+					   }
+					   
+					  }
+				</script>
+          <form action="search.asp" method="post" name="myform" id="myform">
+            <dt>问题搜索
+                <input type="text" name="KeyWord" id="KeyWord" size="20" />
+                  <input type="image" src="{$GetInstallDir}images/sda.gif" onClick="return(check())" align="absmiddle" />
+                  <input type="image" src="{$GetInstallDir}images/wstw.gif" onClick="return(goask())" align="absmiddle" />
+              </dt>
+          </form></span>
+		  您当前位置：<a href="{$GetInstallDir}">{$GetSiteTitle}</a> &gt; <a href="{$GetInstallDir}ask">问吧首页</a> {@class.shownav} &gt; 查看问题</div>
+<div class="blank10 clear"></div>
+
+<!--问答详情start-->
+<div class="askxqmain">
+    <div class="left">
+	       <!--问题分类-->
+	       <div class="left01">
+		        <div class="title"><span></span>问题分类</div>
+				<div class="left01box">
+				      <div class="askbox1">
+						<ul>
+						   <li>问题总数：<span>{@ask.totalnum}</span> 条  <a href="all.asp">查看</a></li>
+						   <li>已解决问题数：<span>{@ask.resolvednum}</span> 条 <a href="all.asp?m=2">查看</a></li>
+						  <li>待解决问题数：<span>{@ask.unresolvednum}</span> 条 <a href="all.asp?m=1">查看</a></li>
+						</ul>
+					  </div>
+					  
+					  <div class="dotline clear"></div>
+				
+					  <div class="askbox2">
+						 <dl>
+						  {@ask.menulist}
+						 </dl>
+					   </div>
+				
+				</div>
+		   </div>
+		   <!--问题分类-->
+	</div>
+	<div class="right">
+	     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+			     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="asktitle">
+				   <tr>
+				      <td>
+					  <span id="fav"><a target="_hideframe" href="userfavorite.asp?topicid={@topic.topicid}" title="收藏到您的个人中心，以便下次查看">添加到收藏</a> </span><span class="icon"></span>提问问题    {elseif:expired=0} <span class="f1">（离问题结束还有<font color="red">{@topic.remaindays}</font>天）</span> {else} <span class="f1">(此问题已过期)</span> {/elseif} </td>
+				   </tr>
+				  </table>
+			 {IF:currpage=1}
+              <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#C5E8FC">
+                  <tr>
+                    <td valign="top" bgcolor="#FFFFFF">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="100" align="center" class="userface"><br />
+                              <a href="../space/?{@topic.userid}" target="_blank"><img name="" src="{@topic.userface}" onerror="this.src='../user/images/noavatar_small.gif';" width="62" height="62" alt="" /></a><br />
+                           <span class="name"> {@topic.username}</span><br />
+                            {@topic.gradetitle}</td>
+                          <td valign="top">
+						  
+						  <table width="100%" border="0" cellspacing="5" cellpadding="5">
+                              <tr>
+                                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td colspan="2"><span class="btn1"><a href="#" onClick="handle(2,{@topic.topicid},'提高悬赏');">提高悬赏</a> <a  href="#" onClick="handle(3,{@topic.topicid},'无满意答案');">无满意答案</a> </span> <span class="topictime">发表时间：{@topic.time}</span> <span class="xsf">{@topic.reward}</span> 浏览次数：<span class="f1">{@topic.hits}</span> 次 </td>
+								  </tr>
+                                  <tr>
+                                    <td><span class="topictitle">{@topic.title}</span> </td>
+                                    <td width="100" rowspan="2" align="center" style="padding-top:20px;"><img src="images/askjj{@topic.status}.jpg" width="99" height="42" /></td>
+                                  </tr>
+                                </table></td>
+                              </tr>
+							  <tr>
+							     <td class="ms">问题描述：</td>
+							  </tr>
+                              <tr>
+                                <td><div class="topiccontent">{@topic.content}</div>
+                                  {if1:answer(6,0)<>"" and ks.ASetting(10)="1"}
+                                  <hr size=1 color="#e8e8e8">
+                                  <h3>问题补充：</h3> <div class="topiccontent">{@topic.addtext}</div>
+                                  {/if1} </td>
+                              </tr>
+                            {ifc:KS.C("UserName")=PostUserName and CloseTopic=0 and topicmode=0}
+                            <tr>
+                              <td> {ifl:KS.ASetting(10)="1"} <a class="btn1" href="#" onClick="handle(1,{@topic.topicid},'问题补充');"><img src="{$GetInstallDir}images/askbc.gif" alt="问题补充" /></a> {/ifl} </td>
+                            </tr>
+                            {/ifc}
+							 <tr>
+							     <td class="share"><a class="bshareDiv">分享按钮</a>
+					<script language="javascript" type="text/javascript" src="http://static.bshare.cn/b/button.js#uuid=8a5892db-a8f6-4b91-b5dd-93753bd581aa&style=2&textcolor=#000&bgcolor=none&bp=qqmb,sinaminiblog,sohubai,renren&ssc=false&sn=true&text=分享到"></script></td>
+							  </tr>
+                          </table>
+						  </td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <br />
+              {/IF}
+              
+              {@answerlist.begin}
+              <table width="100%" border="0" cellpadding="5" cellspacing="0">
+                <tr>
+                  <td valign="top">
+				       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="asktitle">
+				   <tr>
+				      <td>
+					  <span class="icon"></span>网友回答  </td>
+				   </tr>
+				  </table>
+				  <table width="100%" border="0" cellspacing="0" style="border:#C5E8FC 1px solid;">
+                    <tr>
+                      <td width="100" align="center" bgcolor="#F6F9FC" class="userface"><br />
+                    <a href="../space/?{@answer.userid}" target="_blank"><img name="" src="{@answer.userface}" onerror="this.src='../user/images/noavatar_small.gif';" width="62" height="62" alt="{@answer.username}" /></a><br />
+                        <span class="name">{@answer.username}</span>
+						<br />
+                        {@answer.gradetitle}</td>
+                      <td valign="top">
+					  <table width="100%" border="0" cellspacing="5" cellpadding="5"  bgcolor="#ffffff" style="height:100%; overflow:hidden;">
+                        <tr>
+                          <td><span class="topictime">回答时间：{@answer.time}</span></td>
+                          {ifl:{@answer.postsid}=BestID}
+                          <td width="85" rowspan="2" align="center"><img src="images/ask_jp.jpg" width="85" height="103" /></td>
+                          {/ifl} </tr>
+                        <tr>
+                          <td class="topiccontent"> {@answer.content}<br />
+                            {ifl:KS.C("UserName")=PostUserName and CloseTopic=0 and topicmode=0} <span class="btn1"><a href="handle.asp?topicid={@topic.topicid}&pid={@answer.postsid}&action=selbest"><img src="images/ask1.gif" align="absmiddle" /> 采纳</a> {/ifl}
+                            {ifl:KS.C("UserName")=PostUserName and KS.ASetting(12)="1" and CloseTopic=0 and topicmode=0} <a onClick="return(confirm('确定删除该回答吗?'))" href="handle.asp?topicid={@topic.topicid}&pid={@answer.postsid}&action=delanswer"><img src="images/no.gif" align="absmiddle" /> 删除</a> </span>{/ifl} </td>
+                        </tr>
+                      </table></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table>
+              <br />
+              {@answerlist.end}
+			  <iframe name="_hideframe" id="_hideframe" style="display:none;"></iframe>
+			  
+			  <table  border="0" width="100%">
+                <tr>
+                  <td>{@foot.showpage}</td>
+				</tr>
+			  </table>
+			  
+              {if:KS.ASetting(7)="1" and CloseTopic=0 and topicmode=0 and expired=0} <br />
+              <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#C5E8FC">
+                <tr>
+                  <td valign="top" bgcolor="#FFFFFF">
+				   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="asktitle">
+				   <tr>
+				      <td>
+					  <span class="icon"></span>我要回答</td>
+				   </tr>
+				  </table>
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                     
+                      <td valign="top"><table width="100%" border="0" cellspacing="10" cellpadding="10">
+                        
+                        <form method="post" name="answerform" id="answerform" action="postsave.asp" target="_hideframe">
+                          <input type="hidden" name="topicid" value="{@topic.topicid}"/>
+                          <input type="hidden" name="action" value="saveanswer" />
+                          <tr>
+                            <td height="120">{$ShowUpfiles}<textarea style="display:none" name="TextContent" id="TextContent" cols="80" rows="8" wrap="PHYSICAL"></textarea>
+							<iframe id="Editor" name="Editor" src="../editor/ubb/basic.html?id=TextContent" frameBorder="0" marginHeight="0" marginWidth="0" scrolling="No" style="height:160px;width:710px"></iframe>
+							
+                            </td>
+							
+                          </tr>
+                          {ifl:KS.ASetting(8)="1"}
+                          <tr>
+                            <td><script>writeVerifyCode('{$GetInstallDir}',1)</script></td>
+                          </tr>
+                          {/ifl}
+                          <tr>
+                            <td> 
+
+                                  <input name="answerbutton" id="answerbutton" type="image" src="/images/ans_btn.gif" align="absmiddle" />
+                              {ifl:KS.Asetting(30)<>"0"}
+                              第一次回答可获<font color=red>{@topic.firstanswerscore}</font>分，
+                              {/ifl}
+                              {ifl:KS.Asetting(31)<>"0"}
+                              答案被采纳还可获得悬赏分和额外<font color=red>{@topic.adoptedanswerscore}</font>分奖励
+                              {/ifl} </td>
+                          </tr>
+                        </form>
+                      </table></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table>
+              {/if} <br /></td>
+          </tr>
+        </table>
+	</div>
+</div>
+
+<!--问答详情end-->
+<!--问答主体start-->
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

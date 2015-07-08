@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$GetSiteName}-匿名投稿</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/kesion.box.js" type="text/javaScript"></script>
+</head>
+<body>
+<!-- head begin -->
+<div class="user_topa">
+    <div class="usertopa">
+	     <div class="logo"><a href="{$GetSiteUrl}" target="_blank"><img alt="kesioncms" src="{$GetInstallDir}images/logo.png" /></a></div>
+		 <div class="topa_r">
+				    <ul>
+				   <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+					<li class="on"><a href="{$GetSiteUrl}user/Contributor.asp" target="_self">匿名投稿</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   </ul>
+				   
+		 </div>
+	</div>
+</div>
+<div class="blank10 clear"></div>
+<div class="user_topc">
+   <h2>匿名投稿</h2>
+   <span></span>
+   <div class="topc_r"></div>
+</div>
+<div class="blank10 clear"></div>
+<div class="nmtgmain">
+    <div class="left">
+	    <div class="left01">
+		     <div class="tit">匿名投稿</div>
+			 <div class="left01box">
+			     <ul>
+				     {#ShowUserMain}
+				 </ul>
+			 </div>
+		</div>
+	</div>
+	<div class="right">
+	      <div class="right01">
+		        <div class="title">投稿须知</div>
+				<div class="right01box">
+				    <ul>
+					     <li>请自觉遵守互联网相关政策法规，请不要发广告。 </li>
+					     <li>用户投稿信息仅代表其个人意见，并且承担一切因投稿内容引起的纠纷和责任。</li>
+					     <li>本站管理人员有权在不通知用户的情况下删除不符合规定的投稿信息或留做证据。  </li>
+					</ul>
+				</div>
+		  </div>
+		  <div class="clear blank10"></div>
+		  
+	</div>
+</div>
+
+	<div class="clear"></div>	
+	 <div class="foot"> {LB_用户中心底部}</div>
+         
+</body>
+</html>

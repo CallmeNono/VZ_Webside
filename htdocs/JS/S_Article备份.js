@@ -1,0 +1,5 @@
+document.writeln('<form id=\"SearchForm\" name=\"SearchForm\" method=\"get\" action=\"/plus/Search.asp\">')
+document.writeln('        <input name=\"KeyWord\" type=\"text\" class=\"input1\"  value=\"关键字\" onfocus=\"this.select();\"/>')
+document.writeln('        <input name=\"ChannelID\" value=\"1\" type=\"hidden\" />')
+document.writeln('        <input type=\"submit\" class=\"btn1\" name=\"Submit\" value=\"\" />')
+document.writeln('</form>')

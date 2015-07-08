@@ -1,0 +1,164 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>论坛搜索-{$GetSiteTitle}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta name="keywords" content="开源CMS ASPCMS 论坛 社区 论坛程序 asp论坛系统 KesionCMS 站长论坛" />
+<meta name="description" content="KesionCMS 万能建站管理系统官方服务技术交流社区 powered by kesion.com" />
+<meta name="author" content="kesion.com"/>
+<link href="{$GetInstallDir}{$GetClubInstallDir}/images/club.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js"></script>
+<script src="{$GetInstallDir}ks_inc/common.js"></script>
+<script src="{$GetInstallDir}{$GetClubInstallDir}/images/club.js"></script>
+<script src="{$GetInstallDir}ks_inc/lhgdialog.js"></script>
+<script src="{$GetInstallDir}{$GetClubInstallDir}/images/LeeSelect.js" type=text/javascript></script>
+<!--[if IE 6]>
+<script src="/js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+<div class="clubtop">
+    <div class="clubtopbox">
+	      <div class="logo"><img src="{$GetInstallDir}club/images/kslogo.png" alt="kesioncms"></div>
+		  <div class="clubnav">
+		      <ul>
+ <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="ltcurr"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   <li class="hy"><a href="{$GetInstallDir}user/">会员</a></li>			  </ul>
+		  </div>
+		   <div class="poplogin">
+			  {#GetClubPopLogin}
+		   </div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="wrap">
+    <div class="bbsmain">
+			<!--club_t2 begin-->  
+		<div class="club_t2">
+		    <div class="club_pos">{LB_位置导航}</div>
+			<!--论坛搜索begin-->	  
+			  <div class="clubso">
+				   <div class="search">
+						<FORM style="MARGIN: 0px" onSubmit="if(this.key.value==''||this.key.value=='请输入关键词！'){ $.dialog.alert(' 请输入关键词！ ',function(){ $('#key').focus();});return false;}" 
+							action="{$GetInstallDir}{$GetClubInstallDir}/query.asp" method=get><SELECT 
+							id=stype name="stype"> <OPTION value=1 selected>按主题</OPTION> <OPTION 
+							  value=2>按作者</OPTION></SELECT> <INPUT class=search_key 
+							onclick="if(this.value=='请输入关键词！'){this.value='';}" maxLength=40 
+							value=请输入关键词！ name="key" id="key"> <INPUT class="search_button" value="" type=submit>
+							<input type="hidden" name="boardid" value="0"/>
+							</FORM>
+							<SCRIPT type=text/javascript>
+							jQuery("#stype").LeeSelect();
+							</SCRIPT>
+				   </div>
+				   
+				   <div class=""></div>	  
+			  </div>		  
+				<!--论坛搜索end-->	 
+		</div> 
+		<!--club_t2 end-->  
+	<div class="blank8 clear"></div>
+		
+ [SearchContent]
+   
+   [ShowKeySearch]
+
+  <div class="clubbox" style=" background:#fff;">
+   <div class="clubcate">{@search.searchtype}</div>
+   <div class="clear"></div>
+   <div class="sform">
+    <script type="text/javascript">
+	 function checkkey(){
+	  var key=$('#key');
+	  if(key.val()==''){alert('请输入关键字!');key.focus();return false;}
+	  if(key.val().length<2 || key.val().length>20){
+	   alert('关键字字符长度不能小于 2 大于 20 字节!');
+	   key.focus();
+	   return false;
+	  }
+	  return true;
+	 }
+	</script>
+    <form name="sform" action="?" method="get">
+     <input type="text" name="key" class="textbox" id="key" size="35" maxlength="20"/>
+      <select name="boardid" >
+	   <option value='0'>--选取所有版面--</option>
+	  {$BoardOption}
+      </select>
+
+	   <input type="radio" name="stype" value="1" checked>主题
+	   <input type="radio" name="stype" value="2">用户名
+	   <input type="submit" value="立即搜索" onClick="return(checkkey())"/>
+   </form>
+   <br/>
+   <span>
+   搜索说明：
+   <br/>
+关键字字符长度不能小于 2 大于 20 字节<br/>
+每次搜索时间间隔 2 秒 <br/>
+按用户名查询为精确查询，必须输入用户名的全称
+   </span>
+  </div>
+  </div>
+  [/ShowKeySearch]
+
+  [SearchResult]
+	 <div class="ShowKeySearch">{@search.resulttips}：</div>
+     <div class="clubmainbox pd20" style="background:#fff;">
+	      <table border="0" style="margin:0px auto;width:100%" align="center" class="glist" cellpadding="0" cellspacing="0">
+		    <thead class="category">
+				<tr>
+					<td style="width:30px;text-align:center">&nbsp;</td>
+					<td style="width:500px;text-align:left">主题</td>
+					<td style="width:140px;text-align:center">版面名称</td>
+					<td style="width:80px;text-align:center">作者</td>
+					<td style="width:60px;text-align:center">回复</td>
+					<td style="width:150px;text-align:center">最后发表↓</td>
+				</tr>
+			 </thead>
+				{@loop.begin}
+				<tbody class="topiclist">
+				<tr onMouseOver="this.className='tron'" onMouseOut="this.className='trout'">
+				    <td style="width:30px;text-align:center"><img src="{$GetSiteUrl}{$GetClubInstallDir}/images/common.gif" /></td>
+					<td class="topictitle">{@item.category}<a href="{@item.linkurl}" target="_blank">{@item.subject}</a></td>
+					<td style="width:140px;color:#ff5500;text-align:center"><a href="{@item.boardurl}" target="_blank">{@item.boardname}</a></td>
+					<td style="width:80px;text-align:center"><a href="{$GetSiteUrl}space/?{@item.username}" class="author" target="_blank">{@item.username}</a><div class="time">{@item.addtime}</div></td>
+					<td style="width:60px;text-align:center">{@item.totalreplay}<div class="time">{@item.hits}</div></td>
+					<td style="width:150px;text-align:center">
+						<a href="{$GetSiteUrl}space/?{@item.lastreplayuser}" target="_blank">{@item.lastreplayuser}</a>
+						<div class="time">{@item.lastreplaytime}</div>
+					</td>
+				</tr>
+				</tbody>
+				{@loop.end}
+		 </table>
+		 {@search.showpage}
+	 </div>
+ </div>
+[/SearchResult] 
+	 
+
+[/SearchContent]
+
+
+
+
+<div class="blank8 clear"></div>
+
+
+<div class="copyinfo">
+   <div class="power">Powered By <a href="http://www.kesion.com" target="_blank">KesionCMS</a> Version 9.0</div>
+   <div class="">漳州科兴信息技术有限公司 &copy 2006-2012 版权所有 {#ExecutTime}</div>
+</div>
+
+
+
+</body>
+</html>

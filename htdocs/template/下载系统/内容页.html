@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$GetDownTitle}-{$GetClassName}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta content="{$GetDownKeyWord}" name="keywords" />
+<meta content="{$GetClass_Meta_Description}" name="Description" />
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+{LB_头部通用}
+<!--下载主体begin-->
+<div class="downlist">
+   <div class="floatl">
+       <div class="left01">
+		 <div class="title">{$GetDownTitle}</div>
+			<div class="downbox1">
+		    <div class="floatl">
+			   {=GetDownPhoto(170,180)}
+			</div>
+			<div class="floatr">
+			  <ul>
+				 <li><span>软件作者：</span> {$GetDownAuthor}</li>
+				 <li><span>软件大小：</span> {$GetDownSize}</li>
+				 <li><span>软件类别：</span> {$GetDownType} </li>
+				 <li><span>软件语言：</span> {$GetDownLanguage}</li>
+				 <li><span>软件评级：</span> {$GetRank}</li>
+				 <li><span>运行环境：</span> {$GetDownSystem}</li>
+				 <li><span>更新时间：</span> {$GetDownDate}</li>
+				 <li><span>软件授权：</span> {$GetDownPower}</li>
+				 <li><span>所需点数：</span> <font color="red">{$GetDownPoint}</font></li>
+				 <li><span>插件情况：</span><img src="{$GetInstallDir}images/plug.gif" align="absmiddle" /> </li>
+				 <li><span>相关链接：</span> {$GetDownLink}</li>
+				 <li><span>演示地址：</span> {$GetDownYSDZ}</li>
+			  </ul>
+			</div>
+		</div>	
+		<div class="clear blank10"></div>
+		<!--digg-->
+		<div class="digg">
+		     <script language="JavaScript" src="{$GetSiteUrl}ks_inc/digg.js" type="text/javascript"></script> 
+			<div style="width:153px">									
+			<div style="float:left;BACKGROUND: url({$GetSiteUrl}images/default/ding_bg.gif) no-repeat; WIDTH: 58px; HEIGHT: 62px">
+			<div style="PADDING-TOP: 7px; TEXT-ALIGN: center"><SPAN id=s{$InfoID} style="FONT-WEIGHT: bold; COLOR: #fff"></SPAN></div>
+												<div id=d{$InfoID} style="padding-top:12px;HEIGHT: 25px; TEXT-ALIGN: center"><a href="javascript:digg({$ChannelID},{$InfoID},'{$GetSiteUrl}');">顶一下</a> </div></div>
+												
+			<div style="float:right;BACKGROUND: url({$GetSiteUrl}images/default/ding_bg.gif) no-repeat; WIDTH: 58px; HEIGHT: 62px">
+			<div style="PADDING-TOP: 7px; TEXT-ALIGN: center"><SPAN id=c{$InfoID} style="FONT-WEIGHT: bold; COLOR: #fff"></SPAN></div>
+												<div id=d{$InfoID} style="padding-top:12px;HEIGHT: 25px; TEXT-ALIGN: center"><a href="javascript:cai({$ChannelID},{$InfoID},'{$GetSiteUrl}');">踩一下</a> </div></div>
+			<script language="JavaScript" type="text/javascript">show_digg({$ChannelID},{$InfoID},'{$GetSiteUrl}');</script>
+		</div>
+      <!--digg-->
+             
+		 </div>   
+		</div>
+		   <div class="clear blank10"></div>
+		  <div class="ad680">{=GetAdvertise(13)}</div>
+		<div class="clear blank10"></div>
+		<div class="left02">
+		   <div class="title">软件介绍</div>
+		   <div class="downbox2">
+		      {$GetDownIntro}
+		   </div>
+		</div>	
+		
+		<div class="clear blank10"></div>
+		
+		<div class="left02">
+		   <div class="title">软件下载</div>
+		   <div class="downbox2">
+		      {$GetDownAddress}
+		   </div>
+		</div>	
+		<div class="clear blank10"></div>
+		<div class="left03">
+		   <div class="title">网友评论</div>
+		   <div class="Commentbox">
+		      {$GetShowComment}
+		      {$GetWriteComment}
+		   </div>
+		</div>		
+   </div>
+   <div class="right">
+
+   <div class="right01">
+		    <div class="title"><span>推荐软件下载</span></div>
+			<div class="softtjbox">
+			  <ul>
+			    {LB_酷软推荐}
+			  </ul>
+			</div>
+		 </div>
+		
+	 <div class="clear blank10"></div>
+ 
+      <div class="right01">
+		    <div class="title"><span>日下载排行</span></div>
+			<div class="right01box">
+			  <ul>
+			     {LB_日下载排行}
+			  </ul>
+			</div>
+		 </div>
+		      <div class="clear blank10"></div>
+	   <div class="ad270">{=GetAdvertise(11)}</div>
+
+		 <div class="clear blank10"></div>
+		 
+		  <div class="right01">
+		    <div class="title"><span>周下载排行</span></div>
+			<div class="right01box">
+			  <ul>
+			     {LB_周下载排行}
+			  </ul>
+			</div>
+		 </div>
+		 <div class="clear blank10"></div>
+		 
+		  <div class="right01">
+		    <div class="title"><span>月下载排行</span></div>
+			<div class="right01box">
+			  <ul>
+			     {LB_月下载排行}
+			  </ul>
+			</div>
+		 </div>
+   </div>
+</div>
+<!--下载主体end-->
+
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+
+
+</div>
+</body>
+</html>

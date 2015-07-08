@@ -1,0 +1,20 @@
+
+#tiles {
+position: relative; /** Needed to ensure items are laid out relative to this container **/
+margin: 0;
+}
+
+/**
+ * Grid items
+ */
+#tiles li {
+display: none; /** Hide items initially to avoid a flicker effect **/
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+#tiles li.inactive {
+opacity: 0;
+}

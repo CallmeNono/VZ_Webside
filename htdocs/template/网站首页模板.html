@@ -1,0 +1,265 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{$GetSiteTitle}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/pic_roll.js"></script>
+<script src="/ks_inc/lhgdialog.js"></script><!--鼠标滑动特效start--> 
+<SCRIPT type=text/javascript>
+jQuery(document).ready(function(){
+	var SDmodel = new scrollDoor();
+	SDmodel.sd(["m01","m02","m03"],["c01","c02","c03"],"sd01","sd02");
+	SDmodel.sd(["m04","m05","m06"],["c04","c05","c06"],"sd01","sd02");
+})
+</SCRIPT>
+
+
+<!--鼠标滑动特效end--> 
+
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+
+{LB_首页头部}
+				<div class="banner965">{=GetAdvertise(6)}</div>
+				<div class="blank10 clear"></div>
+				
+				<div class="mainbox">
+   <div class="left">
+      <!--left01 begin-->
+       <div class="left01">
+	         <div class="floatl">
+			     <div class="focus">{LB_首页幻灯片文章}</div>
+			 </div>
+			 <div class="floatr">
+			    <div class="news">
+				  {LB_推荐文章top1}
+				</div>
+				<div class="clear"></div>
+				<div class="newstop7">
+				   <ul>
+				     {LB_最新文章top7}
+				   </ul>
+				</div>
+			 </div>
+	   </div>
+	   	 <!--left01 end-->
+	   <div class="clear blank10"></div>
+	   
+      <!--left02 begin-->
+	  <div class="left02">
+	          <!--图片风采开始-->
+			  <div id="schoolPhoto" class="mod-banner">
+				  <div id="focus_img">
+						<ul class="thumbListStlye4">
+							 {LB_首页图片欣赏}
+							<br class="clearbox" />
+						</ul>
+					</div>
+					<span id="btn_focus_next" class="btn"></span>
+					<span id="btn_focus_prev" class="btn"></span>
+            </div>
+				<script type="text/javascript"> 
+				$(function(){
+				var clearTimer = null;
+				var SleepTime = 2000;   //停留时长，单位毫秒
+				$("#focus_img").jCarouselLite({
+					btnNext: "#btn_focus_next",
+					btnPrev: "#btn_focus_prev",
+					visible: 4,
+					scroll:4,
+					speed: 1000,//滚动速度，单位毫秒
+					auto:5000,
+					mouseOver:true
+				});
+				});
+				</script>  
+            <!--图片风采结束-->
+	  </div>
+	 <!--left02 end-->
+	 
+	 <div class="clear blank10"></div>
+      <!--left03 begin-->
+	  <div class="left03">
+	     <div class="floatl">
+		      <div class="title"><span><a href="{$GetInstallDir}Item/list.asp?id=664" target="_blank">更多>></a></span>新闻焦点</div>
+			  <div class="floatlbox">
+				 {LB_首页新闻焦点}
+			  </div>
+		 </div>
+	     <div class="floatr">
+		      <div class="title"><span><a href="{$GetInstallDir}Item/list.asp?id=694" target="_blank">更多>></a></span>图片欣赏</div>
+			  <div class="floatlbox">
+				  {LB_首页图片新闻}
+			  </div>
+		 </div>
+	  </div>
+	 <!--left03 end-->
+	 
+	 	 <div class="clear blank10"></div>
+		 <div class="PK680">
+		    <span>最新PK:</span>
+			<div class="pklist">{SQL_最新PK()}</div>
+		 </div>
+	 	 <div class="clear blank10"></div>
+      <!--left04 begin-->
+	  <div class="left03">
+	     <div class="floatl">
+		      <div class="title"><span><a href="{$GetInstallDir}Item/list.asp?id=719" target="_blank">更多>></a></span>资源下载</div>
+			  <div class="floatlbox">
+				  {LB_首页资源下载}
+			  </div>
+		 </div>
+	     <div class="floatr">
+		      <div class="title"><span><a href="{$GetInstallDir}ask/" target="_blank">更多>></a></span>网友提问</div>
+			  <div class="floatlbox">
+				  {LB_首页最新提问}
+			  </div>
+		 </div>
+	  </div>
+	 <!--left04 end-->
+
+
+
+   </div>
+   <div class="right">
+     
+      <!--right02 begin-->
+
+      <div class="right02">
+	       <!--鼠标切换-->
+				<div class="scrollFrame">
+					 <ul class="scrollUl">
+					   <div class="textdiv">互动交流</div>
+						<li class="sd01" id=m01>活跃会员</li>
+						<li class="sd02" id=m02>微 博</li>
+						<li class="sd02" id=m03>博 文</li>
+					</ul>
+					<div class="bor03 cont">
+						<div class="display" id=c01>
+							<ul class="hyuser">
+							 {=GetTopUser(8,)}
+						   </ul>
+						</div>
+						  
+						 <div class="hidden" id=c02 >
+						   <ul class="dtuser">
+							 <MARQUEE id=this scrollAmount=5 scrollDelay=77 direction=up width=240 height=206 onMouseOut="this.start()" onMouseOver="this.stop()">                {=GetUserDynamic(5)}
+							 </MARQUEE>
+							</ul>
+						</div>
+					   
+						<div class="hidden" id=c03 >
+						   <ul class="syfresh">{LB_首页博文}</ul>
+						</div>
+					</div>
+				</div>
+	
+		 <!--鼠标切换-->
+	  </div>
+	  	 <!--right02 end-->
+
+	   <div class="clear blank10"></div>
+	   <div class="ad270">{=GetAdvertise(11)}</div>
+	   <div class="clear blank10"></div>
+	   
+      <!--right03 begin-->
+	    <div class="right03">
+		   <div class="title"><span>专题新闻</span></div>
+		   <div class="right03box">
+		     <ul>
+			   {LB_最新专题}
+			 </ul>
+		   </div> 
+		</div>
+	  <!--right03 end-->
+
+	   <div class="clear blank10"></div>
+	   
+      <!--right03 begin-->
+	    <div class="right03">
+<!--鼠标切换-->
+				<div class="scrollFrame">
+					 <ul class="scrollUl">
+					   <div class="textdiv">社区交流</div>
+						<li class="sd01" id=m04>最新帖子</li>
+						<li class="sd02" id=m05>热门帖子</li>
+						<li class="sd02" id=m06>精华帖子</li>
+					</ul>
+					<div class="bor03 cont">
+						<div class="display" id=c04>
+							<ul class="sybbs">
+							 {LB_最新帖子}
+						   </ul>
+						</div>
+						  
+						 <div class="hidden" id=c05>
+						   <ul class="sybbs">
+							 {LB_热门帖子}
+						   </ul>
+						</div>
+					   
+						<div class="hidden" id=c06>
+						   <ul class="sybbs">
+						     {LB_精华帖子}
+							 </ul>
+						</div>
+					</div>
+				</div>
+	
+		 <!--鼠标切换-->
+		 		</div>
+	  <!--right03 end-->
+	   <div class="clear blank10"></div>
+	   
+      <!--right04 begin-->
+	    <div class="right03">
+		   <div class="title"><span>站内调查</span></div>
+		   <div class="votebox">
+		     <ul>
+			   {=GetVote(32)}
+			 </ul>
+		   </div> 
+		</div>
+	  <!--right04 end-->
+
+
+	   
+   </div>
+</div>
+
+<div class="clear blank10"></div>
+
+<!--友情链接-->
+<div class="friendlink">
+    <div class="title"><span id="more"><a href="{$GetInstallDir}plus/link/reg/" target="_blank">申请链接>></a></span><span id="tit">友情链接</span></div>
+	<div class="linkbox">
+	  <ul>
+	     {LB_友情链接logo}
+		  {LB_友情链接text}
+	  </ul>
+	</div>
+</div>
+<!--友情链接end-->
+
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

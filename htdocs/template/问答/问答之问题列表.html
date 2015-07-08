@@ -1,0 +1,131 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{@ask.sitetitle}-{@class.classname}</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+<meta content="{$GetClass_Meta_KeyWord}" name=keywords>
+<meta content="{$GetClass_Meta_Description}" name=description>
+<link href="{$GetInstallDir}images/style.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javascript"></script>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javascript"></script>
+<!--[if IE 6]>
+<script src="{$GetInstallDir}js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, ul, img, li, input'); 
+</script>
+<![endif]-->
+</head>
+<body>
+{LB_首页头部}
+<div class="navigation"><span> <script>
+					  check=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }
+					  }
+					  goask=function(){
+					   if (document.getElementById('KeyWord').value=='')
+					   {
+						 alert("对不起,您没有输入关键字!");
+						 return false
+					   }else{
+						window.open('a.asp?q='+document.getElementById('KeyWord').value);
+						return false;
+					   }
+					   
+					  }
+				</script>
+          <form action="search.asp" method="post" name="myform" id="myform">
+            <dt>问题搜索
+                <input type="text" name="KeyWord" id="KeyWord" size="20" />
+                  <input type="image" src="{$GetInstallDir}images/sda.gif" onClick="return(check())" align="absmiddle" />
+                  <input type="image" src="{$GetInstallDir}images/wstw.gif" onClick="return(goask())" align="absmiddle" />
+              </dt>
+          </form></span>您当前位置：<a href="{$GetInstallDir}">{$GetSiteTitle}</a> &gt; <a href="{$GetInstallDir}ask">问吧首页</a> &gt; {@class.shownav}</div>
+<div class="blank10 clear"></div>
+<!--问答详情start-->
+<div class="askxqmain">
+    <div class="left">
+	       <!--问题分类-->
+	       <div class="left01">
+		        <div class="title"><span></span>问题分类</div>
+				<div class="left01box">
+				      <div class="askbox1">
+						<ul>
+						   <li>问题总数：<span>{@ask.totalnum}</span> 条  <a href="all.asp">查看</a></li>
+						   <li>已解决问题数：<span>{@ask.resolvednum}</span> 条 <a href="all.asp?m=2">查看</a></li>
+						  <li>待解决问题数：<span>{@ask.unresolvednum}</span> 条 <a href="all.asp?m=1">查看</a></li>
+						</ul>
+					  </div>
+					  
+					  <div class="dotline clear"></div>
+				
+					  <div class="askbox2">
+						 <dl>
+						  {@ask.menulist}
+						 </dl>
+					   </div>
+				
+				</div>
+		   </div>
+		   <!--问题分类-->
+	</div>
+	<div class="right">
+	        <div class="right01">
+		      <div class="tit"><span>本类共有问题 <font color=red>{@class.questionnum}</font> 条</span>{@class.classname} </div>
+			 <div class="right01box">
+			   <ul>
+			   {@class.childclasslist}
+			   </ul>
+			 </div>
+		  </div>
+	     <div class="blank10 clear"></div>
+		 
+		     <!--鼠标切换-->
+	     <div class="asklist">
+              <table cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+                  <tr>
+					  <td colspan="5" class="tit">{@head.shownav}</td>
+				  </tr>
+                  <tr class="asktopic">
+                     <td align=middle width=211 height="28">标&nbsp;题</td>
+                     <td align=middle width=108>回答数</td>
+                     <td align=middle width=56>状&nbsp;态</td>
+                     <td align=middle width=121>提问人</td>
+                     <td align=middle width=93 >提问时间</td>
+                  </tr>
+                                   
+                  {@topiclist.begin}
+                 <tr>
+                  <td class="topic"> <a href="{@topic.topicurl}" target="_blank">{@topic.title}</a>{@topic.reward}</td>
+                  <td  class="topic" align=middle>{@topic.postnum}</td>
+                  <td  class="topic" align=middle><img height=20 src="images/ask{@topic.status}.gif" width=17></td>
+                  <td  class="topic" align=middle>{@topic.username}</td>
+                  <td  class="topic" align=left>{@topic.time}</td>
+                </tr>
+                   {@topiclist.end}
+               </table>
+			   <br />
+				{@foot.showpage}
+									           				
+	 </div>
+	 
+	 <!--鼠标切换-->
+	</div>
+</div>
+
+<!--问答详情end-->
+<!--问答主体start-->
+<div class="clear blank10"></div>
+
+<!--版权信息-->
+<div class="copyright">
+  {LB_底部通用}
+</div>
+<!--版权信息-->
+</div>
+</body>
+</html>

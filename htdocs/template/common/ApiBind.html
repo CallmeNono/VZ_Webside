@@ -1,0 +1,98 @@
+﻿ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<html>
+		<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{$Title}[{$GetSiteName}]</title>
+		 <style type="text/css">
+		  *{margin:0;padding:0;word-wrap:break-word;}
+		  body{background:url(../qq/img/bodybg.png) repeat-x;font:12px/1.75 "宋体", arial, sans-serif,'DejaVu Sans','Lucida Grande',Tahoma,'Hiragino Sans GB',STHeiti,SimSun,sans-serif;color:#444;line-height:26px}
+		  .btn{background:url(../../user/images/btn_normal.gif);border:0px ;height:28px;width:93px;color:#444}
+		  .textbox{height:22px;line-height:22px;border:1px solid #ccc}
+		 </style>
+		</head>
+		<body>
+<br/><br/>
+          <table width="70%" align="center">
+		  <tr>
+		   <td colspan="3">
+		   <img src="../../images/logo.png"/>
+		   <br/>
+		   <br/><strong><font size="3">您好<span style='color:red'>{$OriginUserName}</span>,{$Title}！</font></strong><br/><br/>
+		  </td>
+		  </tr>
+		  <tr>
+		   <td  width="48%" valign="top">
+		   <strong><font size="3" color="#0066CC">1、如果您已有账号，可以快速绑定</font></strong>
+		  <form name="myform" action="?" method="post">
+		    <br/> <input type="hidden" name="action" value="check"/>
+			 <input type="hidden" name="openid" value="{$OpenID}"/>
+			 原有用 户 名：<input type="text"  class="textbox" name="username" maxlength="25"/><br/>
+			 原有登录密码：<input type="password" class="textbox" name="password" maxlength="25"/><br/>
+			 <br/>
+			 <input type="submit" class="btn" onClick="return(checkbind())" value=" 快速绑定 " name="submit1"/>
+		  </form>
+		  <br/>
+		  <font color=red>提示:捆绑成功之后,下次{$LoginType}方式登录即可直接登录到捆绑后的帐号。</font>
+		  
+		  </td>
+		  <td width="1" style="border-left:1px solid #f1f1f1">&nbsp;</td>
+		  <td valign="top">
+		  <strong><font size="3" color="#0066CC">2、如果还没有账号，您可以快速注册</font></strong>
+		  
+		   <script type="text/javascript">
+		    function checkbind(){
+				if (document.myform.username.value==''){
+			   alert('请输入用户名!');
+			   document.myform.username.focus();
+			   return false;
+			  }
+			  if (document.myform.password.value==''){
+			   alert('请输入密码!');
+			   document.myform.password.focus();
+			   return false;
+			  }
+              return true;
+			}
+		    function checkreg(){
+			  if (document.myform1.username.value==''){
+			   alert('请输入用户名!');
+			   document.myform1.username.focus();
+			   return false;
+			  }
+			  if (document.myform1.password.value==''){
+			   alert('请输入注册密码!');
+			   document.myform1.password.focus();
+			   return false;
+			  }
+			  if (document.myform1.repassword.value==''){
+			   alert('请输入重复密码!');
+			   document.myform1.repassword.focus();
+			   return false;
+			  }
+			  if (document.myform1.repassword.value!=document.myform1.password.value){
+			   alert('两次输入的密码不一致!');
+			   document.myform1.repassword.focus();
+			   return false;
+			  }
+			  return true;
+			}
+		   </script>
+		  <form name="myform1" action="?" method="post">
+		     <input type="hidden" name="action" value="doreg"/>
+			 <input type="hidden" name="openid" value="{$OpenID}"/>
+			 <input type="hidden" name="userface" value="{$UserFace}"/>
+			 用户头像：<img src="{$UserFace}" width="30"/><br/>
+			 用 户 名：<input type="text" class="textbox" name="username" value="{$UserName}" maxlength="25"/><br/>
+			 登录密码：<input type="password" class="textbox" name="password" maxlength="25"/><br/>
+			 重复密码：<input type="password" class="textbox" name="repassword" maxlength="25"/><br/>
+			 性别：{$Sex}<br/>
+			 
+			 <div{$ShowGroupID}>注册类型：
+			 {$UserGroupList}
+			 </div>
+			 <input type="submit" value=" 快速注册 " class="btn" name="submit1" onClick="return(checkreg());"/>
+		  </form>
+		  </td>
+		  </tr>
+		 </table>
+		 

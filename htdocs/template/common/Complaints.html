@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>{$GetSiteName}-我要投诉</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7, IE=9">
+<link href="{$GetInstallDir}user/images/css.css" type=text/css rel=stylesheet>
+<script src="{$GetInstallDir}ks_inc/common.js" type="text/javaScript"></script>
+<script src="{$GetInstallDir}ks_inc/jquery.js" type="text/javaScript"></script>
+<script language = "JavaScript">
+	function CheckForm(){
+		if ($("#UserName").val()==""){
+					alert("请输入用户名！");
+					$("#UserName").focus();
+					return false;
+	    }
+	   if ($("#Email").val()==""){
+					alert("请输入邮箱！");
+					$("#Email").val();
+					return false;
+		}
+	    return true;
+ }
+</script>
+
+</head>
+<body>
+<!-- head begin -->
+<div class="user_topa">
+    <div class="usertopa">
+	     <div class="logo"><a href="{$GetSiteUrl}" target="_blank"><img alt="kesioncms" src="{$GetInstallDir}images/logo.png" /></a></div>
+		 <div class="topa_r">
+				    <ul>
+				   <li class="home"><a href="{$GetInstallDir}">首页</a></li>
+				   <li class="hycurr"><a href="{$GetInstallDir}user/">会员</a></li>
+				   <li class="wb"><a href="{$GetInstallDir}user/weibo.asp">微博</a></li>
+				   <li class="mh"><a href="{$GetInstallDir}user/space.asp">门户</a></li>
+				   <li class="lt"><a href="{$GetInstallDir}club/">论坛</a></li>
+				   </ul>
+				   
+		 </div>
+	</div>
+</div>
+<div class="blank10 clear"></div>
+<div class="user_topc">
+   <h2>我要投诉</h2>
+   <span></span>
+   <div class="topc_r"></div>
+</div>
+<div class="blank10 clear"></div>
+<div class="nmtgmain">
+    <div class="left">
+	    <div class="left01">
+		     <div class="tit">我要投诉</div>
+			 <div class="left01box">
+							 <script>
+							  function checkform()
+							  {
+							   if ($('#Title').val()==''){
+								alert('请输入投诉主题!');
+								$('#Title').focus();
+								return false;
+							   }
+							   if ($('#content').val()==''){
+								alert('请输入投诉内容!');
+								$('#content').focus();
+								return false;
+							   }
+							  }
+							 </script>
+							  
+							<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="normaltext">
+							 <tr>
+							 <form name="bmform" action="Complaints.asp?action=DoSave" method="post">
+								  <td align="right" height="25" nowrap="nowrap">意见主题：</td>
+								  <td align="left" > 
+								  <input type="text" name="Title" id="Title" class="textbox" size="30">
+								  </td>
+							  </tr>
+							   <tr>
+								  <td align="right" height="25">意见对象：</td>
+								  <td align="left"> <input type="text" name="Object" class="textbox" size="30"> </td>
+							  </tr>
+							   <tr>
+								  <td align="right" height="25">意见内容：</td>
+								  <td align="left"> 
+								  <textarea name="content" id="content" style="width:430px;height:100px"></textarea>
+								 </td>
+							  </tr>
+							  <tr>
+								  <td align="right" height="25">期望解决方案：</td>
+								  <td  align="left"> 
+								  <textarea name="Hopesolution" style="width:430px;height:100px"></textarea>
+								</td>
+							  </tr>
+								
+							   
+					   </table>
+						 <div class="clear blank10"></div>	
+					<div style="text-align:center"><input type="Submit" class="button" onClick="return(checkform())" value=" 立即投诉 "></div>
+					 
+					</form>
+			 </div>
+		</div>
+	</div>
+	<div class="right">
+	      <div class="right01">
+		        <div class="title">投诉须知</div>
+				<div class="right01box">
+				    <ul>
+					     <li>1、本网站为消费者提供投诉曝光的平台，本网站对投诉信息有处置权。 </li>
+					     <li>2、为了保障您的权益，请您在投诉时填写真实的资料，以便我们和您联系。</li>
+					     <li>3、如利用本网站投诉攻击其它人或者进行不正当的竞争，将受到法律的制裁。</li>
+					     <li>4、本站所有投诉信息均为网友（投诉者）个人意见，并不代表本站观点。</li>
+					</ul>
+				</div>
+		  </div>
+		  <div class="clear blank10"></div>
+		  
+	</div>
+</div>
+
+	<div class="clear"></div>	
+	 <div class="foot">  {LB_用户中心底部}</div>
+         
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$GetSiteName}</title>
+{$GetMetaKeyWord}
+{$GetMetaDescript}
+<link href="{$GetInstallDir}images/AKKN/style/main.css" rel="stylesheet" type="text/css" />
+<link href="{$GetInstallDir}images/AKKN/style/index.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/jquery-1.7.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/js.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/fun.js"></script>
+<script language="javascript" type="text/javascript" src="{$GetInstallDir}images/AKKN/script/form.js"></script>
+<!--[if lte IE 6]>
+<script src="{$GetInstallDir}images/AKKN/script/png.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input , a');
+    </script>
+<![endif]--> 
+</head>
+
+<body>
+<div class="headDiv headDiv2">
+{LB_头部}
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.nav').find('a').eq(1).addClass('aNow');
+	})
+</script>
+
+<div class="wal">
+<!--wal-->
+<div class="pageNow">
+     <div class="title">关于我们：</div>
+     <div class="now"><span>当前位置 ：</span><a href="{$GetInstallDir}index.html">首页</a> - {$GetClassName}</div>
+     <div class="search">
+     {LB_搜索}
+     </div>
+</div>
+<div class="fl aboutPart1">
+     {LB_内页关于我们}
+</div>
+<div class="fr aboutPart2">
+     <div class="title">公司资质</div>
+     <div class="list">
+          <ul>
+            <li><a href="{$GetInstallDir}html/about/honor.html"><img src="{$GetInstallDir}images/AKKN/image/img167_1.jpg" width="167" height="108"></a></li>
+            <li><a href="{$GetInstallDir}html/about/honor.html"><img src="{$GetInstallDir}images/AKKN/image/img167_2.jpg" width="167" height="108"></a></li>
+          </ul>
+      </div>
+</div>
+<span class="clear_f"></span>
+<div class="fl aboutPart3">
+      <div class="pageTitle"><a href="{$GetInstallDir}html/about/news/index.html">新闻资讯：</a></div>
+      {LB_公司与发展首页图片新闻}
+      {LB_公司与发展首页新闻}
+</div>
+<div class="fr aboutPart4">
+      <div class="pageTitle">分享理念：</div>
+      <div class="imgDiv"><a href="{$GetInstallDir}html/about/idea.html"><img src="{$GetInstallDir}images/AKKN/image/img333.jpg" width="333" height="128" /></a></div>
+      <div class="name">我们不懈的追求：</div>
+      <div class="msg">
+      技术领先、品质卓越、用您负担起的价格，给您提供优质的产品和服务。
+      </div>
+</div>
+<span class="clear_f"></span>
+<!--walEnd-->
+</div>
+
+{LB_底部}
+</body>
+</html>
